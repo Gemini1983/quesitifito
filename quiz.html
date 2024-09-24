@@ -1603,7 +1603,7 @@
             },
             {
                 number: 142,
-                question: "Domanda 142: Cose'' una stazione agrometeorologica?",
+                question: "Domanda 142: Cos'è una stazione agrometeorologica?",
                 answers: {
                     a: "Una struttura coperta, presente nel campo, contenente strumentazioni per il rilevamento della piovosit?",
                     b: "Una struttura coperta, presente nel campo, contenente strumentazioni per il rilevamento dei dati meteorologici",
@@ -4509,7 +4509,7 @@
             if (currentQuestion < filteredQuestions.length) {
                 loadQuestion();
             } else {
-                document.getElementById('quizContainer').innerHTML = '<p>Quiz completato!</p>';
+                document.getElementById('quizContainer').innerHTML = '<p>Modulo completato!</p><br><button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>';
             }
         }
 
