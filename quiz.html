@@ -6,31 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz con Selezione Modulo</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        h1 { text-align: center; }
-        .module-selection { text-align: center; margin-bottom: 20px; }
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 5%; 
+            padding: 0;
+        }
+        h1 { 
+            text-align: center; 
+            font-size: 1.5em;
+        }
+        .module-selection { 
+            text-align: center; 
+            margin-bottom: 20px; 
+        }
         .module-button {
             display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
+            padding: 10px 5%;
+            margin: 5px;
+            font-size: 14px;
             background-color: #007BFF;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            width: 90%;
         }
         .module-button:hover {
             background-color: #0056b3;
         }
-        .question { margin-bottom: 20px; font-size: 18px; }
-        .answers { margin-left: 0; margin-bottom: 20px; }
+        .question { 
+            margin-bottom: 20px; 
+            font-size: 1.2em;
+        }
+        .answers { 
+            margin: 0; 
+            margin-bottom: 20px; 
+        }
         .answer-option {
             display: block;
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             margin: 5px 0;
-            font-size: 16px;
+            font-size: 1em;
             text-align: left;
             background-color: #f0f8ff;
             border: 2px solid #cce7ff;
@@ -66,17 +83,36 @@
         }
         button { 
             display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            font-size: 16px;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 1.1em;
             background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            width: 90%;
         }
-        #nextButton { display: none; }
-        #feedback { margin-top: 20px; font-weight: bold; text-align: center; }
+        #nextButton { 
+            display: none; 
+        }
+        #feedback { 
+            margin-top: 20px; 
+            font-weight: bold; 
+            text-align: center; 
+        }
+
+        @media (max-width: 600px) {
+            .module-button {
+                font-size: 12px;
+            }
+            .answer-option {
+                font-size: 0.9em;
+            }
+            button {
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>
