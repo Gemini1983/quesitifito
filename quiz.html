@@ -210,6 +210,35 @@
             line-height: 1.6;
         }
 
+        #infoSection h2,
+        #infoSection h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        #infoSection p {
+            text-align: justify;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        #infoSection ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        #infoSection ul li {
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        #infoSection button {
+            margin-top: 20px;
+            background-color: #007BFF;
+        }
+
+
         /* Media query per dispositivi mobili */
         @media (max-width: 600px) {
             body {
@@ -330,17 +359,16 @@
             L'app rende il materiale didattico più accessibile e interattivo, permettendo agli utenti di esercitarsi
             efficacemente attraverso <strong>moduli tematici</strong> corrispondenti ai diversi argomenti dell'esame.
         </p>
-        <h3>Vantaggi</h3>
-        <ul>
-            <li>Accesso immediato ai quesiti ufficiali.</li>
-            <li>Esperienza di apprendimento interattiva.</li>
-            <li>Preparazione focalizzata su moduli specifici.</li>
-            <li>Supporto alla diffusione di una cultura dell'uso <strong>responsabile e sostenibile</strong> dei
-                prodotti fitosanitari.</li>
-        </ul>
         <p>
             Questa soluzione digitale è in linea con le normative vigenti e gli obiettivi di tutela dell'ambiente e
             della salute pubblica promossi dalle istituzioni.
+        </p>
+
+        <!-- Disclaimer -->
+        <p style="font-size: 0.9em; color: #555; border-top: 1px solid #ccc; padding-top: 15px;">
+            <strong>Disclaimer:</strong> Questa applicazione è stata sviluppata a scopo educativo e informativo. Non è
+            affiliata né approvata dalla Regione Lazio o da alcuna istituzione pubblica. Si prega di consultare le fonti
+            ufficiali per informazioni aggiornate e dettagliate riguardo alle normative e alle procedure d'esame.
         </p>
         <button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>
     </div>
