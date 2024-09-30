@@ -183,6 +183,33 @@
             transition: width 0.5s ease-in-out;
         }
 
+        /* Footer */
+        #footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #footer a {
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        #footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sezione del testo esplicativo */
+        #infoSection {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #infoSection p {
+            text-align: justify;
+            line-height: 1.6;
+        }
+
         /* Media query per dispositivi mobili */
         @media (max-width: 600px) {
             body {
@@ -238,6 +265,11 @@
         <button class="module-button" onclick="selectModule(6)">Modulo 6: Norme di sicurezza (244–349)</button>
         <button class="module-button" onclick="selectModule(7)">Modulo 7: Effetti sulla Salute (350–410)</button>
         <button class="module-button" onclick="selectModule(8)">Modulo 8: Sostenibilità ambientale (411–426)</button>
+
+        <!-- Footer con link al testo esplicativo -->
+        <div id="footer">
+            <a href="#" onclick="showInfo()">Informazioni sull'applicazione</a>
+        </div>
     </div>
 
     <!-- Contenitore del Quiz (nascosto finché non si seleziona un modulo) -->
@@ -270,6 +302,47 @@
         </div>
         <button id="nextButton" onclick="nextQuestion()">Successiva</button>
         <p id="feedback"></p>
+    </div>
+
+
+    <!-- Sezione del testo esplicativo -->
+    <div id="infoSection">
+        <h2>Informazioni sull'applicazione</h2>
+        <p>
+            In base alla <strong>Determinazione n. G05824 del 13/05/2015</strong> emanata dalla Regione Lazio, è stato
+            approvato un elenco di <strong>426 quesiti a risposta multipla</strong> per l'esame necessario al rilascio
+            dei certificati di abilitazione all'acquisto e all'utilizzo dei prodotti fitosanitari e per l'attività di
+            consulente.
+        </p>
+        <p>
+            Questo esame, reso obbligatorio dal <strong>D.Lgs 14 agosto 2012, n. 150</strong>, che recepisce la
+            direttiva <strong>2009/128/CE</strong> sull'utilizzo sostenibile dei pesticidi, richiede la partecipazione a
+            corsi di formazione e il superamento di una prova composta da <strong>50 domande</strong> estratte da tale
+            elenco.
+        </p>
+        <h3>Obiettivo dell'applicazione</h3>
+        <p>
+            Ho sviluppato un'applicazione mobile che integra tutti i <strong>426 quesiti ufficiali</strong> forniti
+            dall'amministrazione pubblica, con l'obiettivo di <strong>facilitare la preparazione</strong> dei candidati
+            all'esame di abilitazione.
+        </p>
+        <p>
+            L'app rende il materiale didattico più accessibile e interattivo, permettendo agli utenti di esercitarsi
+            efficacemente attraverso <strong>moduli tematici</strong> corrispondenti ai diversi argomenti dell'esame.
+        </p>
+        <h3>Vantaggi</h3>
+        <ul>
+            <li>Accesso immediato ai quesiti ufficiali.</li>
+            <li>Esperienza di apprendimento interattiva.</li>
+            <li>Preparazione focalizzata su moduli specifici.</li>
+            <li>Supporto alla diffusione di una cultura dell'uso <strong>responsabile e sostenibile</strong> dei
+                prodotti fitosanitari.</li>
+        </ul>
+        <p>
+            Questa soluzione digitale è in linea con le normative vigenti e gli obiettivi di tutela dell'ambiente e
+            della salute pubblica promossi dalle istituzioni.
+        </p>
+        <button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>
     </div>
 
 
@@ -4538,6 +4611,7 @@
             },
         ];
 
+
         let currentQuestion = 0;
         let filteredQuestions = [];
         let correctAnswers = 0;
@@ -4545,6 +4619,9 @@
         let questionAnswered = false;
 
         function selectModule(moduleNumber) {
+            // Nascondi altre sezioni
+            document.getElementById('infoSection').style.display = 'none';
+
             let start = 0, end = 0;
             if (moduleNumber === 1) { start = 1; end = 34; }
             else if (moduleNumber === 2) { start = 35; end = 68; }
@@ -4678,7 +4755,14 @@
 
         function returnToModuleSelection() {
             document.getElementById('quizContainer').style.display = 'none';
+            document.getElementById('infoSection').style.display = 'none';
             document.getElementById('moduleSelection').style.display = 'block';
+        }
+
+        function showInfo() {
+            document.getElementById('moduleSelection').style.display = 'none';
+            document.getElementById('quizContainer').style.display = 'none';
+            document.getElementById('infoSection').style.display = 'block';
         }
 
     </script>
