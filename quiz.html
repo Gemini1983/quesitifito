@@ -141,6 +141,12 @@
             text-align: center;
         }
 
+        #score {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
         @media (max-width: 600px) {
             .module-button {
                 font-size: 12px;
@@ -195,6 +201,8 @@
         </div>
         <button id="nextButton" onclick="nextQuestion()">Successiva</button>
         <p id="feedback"></p>
+
+        <p id="score">Risposte Corrette: 0 | Risposte Errate: 0</p>
     </div>
 
     <script>
@@ -4465,7 +4473,20 @@
         let currentQuestion = 0;
         let filteredQuestions = [];
 
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+
+        let questionAnswered = false;
+
         function selectModule(moduleNumber) {
+            currentQuestion = 0;
+            correctAnswers = 0;
+            incorrectAnswers = 0;
+
+            // Se stai mostrando il contatore in tempo reale, resetta anche la visualizzazione
+            if (document.getElementById('score')) {
+                document.getElementById('score').innerText = 'Risposte Corrette: 0 | Risposte Errate: 0';
+            }
             // Filter questions based on the selected module
             let start = 0, end = 0;
             if (moduleNumber === 1) { start = 1; end = 34; }
@@ -4489,28 +4510,48 @@
         }
 
         function loadQuestion() {
+            questionAnswered = false; // Resetta lo stato della domanda
+
             document.getElementById('questionText').innerHTML = filteredQuestions[currentQuestion].question;
             document.getElementById('label_a').innerText = filteredQuestions[currentQuestion].answers.a;
             document.getElementById('label_b').innerText = filteredQuestions[currentQuestion].answers.b;
             document.getElementById('label_c').innerText = filteredQuestions[currentQuestion].answers.c;
             document.getElementById('feedback').innerText = '';
             document.getElementById('nextButton').style.display = 'none';
-
+            // Deseleziona le opzioni precedenti
+            document.getElementById('answer_a').checked = false;
+            document.getElementById('answer_b').checked = false;
+            document.getElementById('answer_c').checked = false;
             // Reset previous styles
             document.getElementById('label_a').classList.remove('correct', 'incorrect');
             document.getElementById('label_b').classList.remove('correct', 'incorrect');
             document.getElementById('label_c').classList.remove('correct', 'incorrect');
+
+            // Nascondi il pulsante "Successiva" fino a quando l'utente non risponde
+            document.getElementById('nextButton').style.display = 'none';
         }
 
         function checkAnswer(selectedValue) {
+
+            if (questionAnswered) {
+                return; // Se la domanda è già stata risposta, non fare nulla
+            }
+            questionAnswered = true; // Imposta la domanda come risolta
             const correctAnswer = filteredQuestions[currentQuestion].correctAnswer;
             if (selectedValue === correctAnswer) {
                 document.getElementById('label_' + correctAnswer).classList.add('correct');
+                correctAnswers++;
             } else {
                 document.getElementById('label_' + selectedValue).classList.add('incorrect');
                 document.getElementById('label_' + correctAnswer).classList.add('correct');
+                incorrectAnswers++;
             }
             document.getElementById('nextButton').style.display = 'inline';
+
+            // Aggiorna il contatore in tempo reale se presente
+            if (document.getElementById('score')) {
+                document.getElementById('score').innerText = 'Risposte Corrette: ' + correctAnswers + ' | Risposte Errate: ' + incorrectAnswers;
+            }
         }
 
         function nextQuestion() {
@@ -4518,7 +4559,10 @@
             if (currentQuestion < filteredQuestions.length) {
                 loadQuestion();
             } else {
-                document.getElementById('quizContainer').innerHTML = '<p>Modulo completato!</p><br><button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>';
+                document.getElementById('quizContainer').innerHTML = '<p>Modulo completato!</p>' +
+                    '<p>Risposte Corrette: ' + correctAnswers + '</p>' +
+                    '<p>Risposte Errate: ' + incorrectAnswers + '</p>' +
+                    '<button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>';
             }
         }
 
