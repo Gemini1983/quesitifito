@@ -70,17 +70,19 @@
         }
 
         .answer-option {
-            display: block;
+            display: flex;
+            align-items: center;
             width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-            font-size: 1em;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 1.1em;
             text-align: left;
             background-color: #f0f8ff;
             border: 2px solid #cce7ff;
             border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s;
+            box-sizing: border-box;
         }
 
         .answer-option:hover {
@@ -100,16 +102,16 @@
 
         .answer-option.correct::after {
             content: "✔";
-            float: right;
+            margin-left: auto;
             color: green;
-            font-size: 20px;
+            font-size: 24px;
         }
 
         .answer-option.incorrect::after {
             content: "✖";
-            float: right;
+            margin-left: auto;
             color: red;
-            font-size: 20px;
+            font-size: 24px;
         }
 
         .answer-option.disabled {
@@ -124,7 +126,7 @@
         button {
             display: block;
             margin: 10px auto;
-            padding: 10px;
+            padding: 15px;
             font-size: 1.1em;
             background-color: #4CAF50;
             color: white;
@@ -181,21 +183,37 @@
             transition: width 0.5s ease-in-out;
         }
 
+        /* Media query per dispositivi mobili */
         @media (max-width: 600px) {
+            body {
+                margin: 2%;
+            }
+
             .module-button {
-                font-size: 12px;
+                font-size: 14px;
+                padding: 12px 5%;
             }
 
             .answer-option {
-                font-size: 1em;
-                padding: 10px;
+                font-size: 1.2em;
+                padding: 20px;
+                margin: 15px 0;
+            }
+
+            .question {
+                font-size: 1.3em;
             }
 
             button {
-                font-size: 1em;
+                font-size: 1.1em;
+                padding: 12px;
             }
 
             #progressBar {
+                height: 15px;
+            }
+
+            #progress {
                 height: 15px;
             }
         }
@@ -215,7 +233,8 @@
         <button class="module-button" onclick="selectModule(2)">Modulo 2: Fitoiatria (35–68)</button>
         <button class="module-button" onclick="selectModule(3)">Modulo 3: Prodotti fitosanitari (69–132)</button>
         <button class="module-button" onclick="selectModule(4)">Modulo 4: Difesa fitosanitaria (133–158)</button>
-        <button class="module-button" onclick="selectModule(5)">Modulo 5: Classificazione tossicologica (159–243)</button>
+        <button class="module-button" onclick="selectModule(5)">Modulo 5: Classificazione tossicologica
+            (159–243)</button>
         <button class="module-button" onclick="selectModule(6)">Modulo 6: Norme di sicurezza (244–349)</button>
         <button class="module-button" onclick="selectModule(7)">Modulo 7: Effetti sulla Salute (350–410)</button>
         <button class="module-button" onclick="selectModule(8)">Modulo 8: Sostenibilità ambientale (411–426)</button>
@@ -242,16 +261,17 @@
             <p id="questionText"><strong>Domanda:</strong> {question}</p>
             <div class="answers">
                 <input type="radio" id="answer_a" name="answer" value="a" onclick="checkAnswer('a')">
-                <label class="answer-option" for="answer_a" id="label_a"></label><br>
+                <label class="answer-option" for="answer_a" id="label_a"></label>
                 <input type="radio" id="answer_b" name="answer" value="b" onclick="checkAnswer('b')">
-                <label class="answer-option" for="answer_b" id="label_b"></label><br>
+                <label class="answer-option" for="answer_b" id="label_b"></label>
                 <input type="radio" id="answer_c" name="answer" value="c" onclick="checkAnswer('c')">
-                <label class="answer-option" for="answer_c" id="label_c"></label><br>
+                <label class="answer-option" for="answer_c" id="label_c"></label>
             </div>
         </div>
         <button id="nextButton" onclick="nextQuestion()">Successiva</button>
         <p id="feedback"></p>
     </div>
+
 
     <script>
         const questions = [
