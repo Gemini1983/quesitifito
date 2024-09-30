@@ -16,23 +16,24 @@
     <title>Quiz con Selezione Modulo</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 5%;
             padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
         }
 
         img {
             display: block;
             margin: 0 auto;
             width: 150px;
-            /* Set a fixed width for the logo */
             height: auto;
-            /* Maintain aspect ratio */
         }
 
-        h1 {
+        h1,
+        h2 {
             text-align: center;
-            font-size: 1.5em;
+            color: #444;
         }
 
         .module-selection {
@@ -51,6 +52,7 @@
             border-radius: 5px;
             cursor: pointer;
             width: 90%;
+            transition: background-color 0.3s;
         }
 
         .module-button:hover {
@@ -78,21 +80,22 @@
             border: 2px solid #cce7ff;
             border-radius: 10px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s;
         }
 
         .answer-option:hover {
-            background-color: #e0f0ff;
+            background-color: #dfefff;
+            transform: scale(1.02);
         }
 
         .correct {
-            background-color: #d4edda !important;
-            border-color: #c3e6cb !important;
+            background-color: #c8e6c9 !important;
+            border-color: #66bb6a !important;
         }
 
         .incorrect {
-            background-color: #f8d7da !important;
-            border-color: #f5c6cb !important;
+            background-color: #ffcdd2 !important;
+            border-color: #e57373 !important;
         }
 
         .answer-option.correct::after {
@@ -102,10 +105,6 @@
             font-size: 20px;
         }
 
-        p#questionText strong {
-            font-weight: bold !important;
-        }
-
         .answer-option.incorrect::after {
             content: "✖";
             float: right;
@@ -113,9 +112,13 @@
             font-size: 20px;
         }
 
+        .answer-option.disabled {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
         input[type="radio"] {
             display: none;
-            /* Hide radio buttons */
         }
 
         button {
@@ -142,9 +145,40 @@
         }
 
         #score {
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-size: 1.2em;
             margin-bottom: 20px;
+        }
+
+        #score span {
+            margin: 0 10px;
+        }
+
+        .icon-correct {
+            color: green;
+            margin-right: 5px;
+        }
+
+        .icon-incorrect {
+            color: red;
+            margin-right: 5px;
+        }
+
+        #progressBar {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 13px;
+            margin-bottom: 20px;
+        }
+
+        #progress {
+            width: 0%;
+            height: 20px;
+            background-color: #76c7c0;
+            border-radius: 13px;
+            transition: width 0.5s ease-in-out;
         }
 
         @media (max-width: 600px) {
@@ -153,11 +187,16 @@
             }
 
             .answer-option {
-                font-size: 0.9em;
+                font-size: 1em;
+                padding: 10px;
             }
 
             button {
                 font-size: 1em;
+            }
+
+            #progressBar {
+                height: 15px;
             }
         }
     </style>
@@ -166,7 +205,7 @@
 <body>
     <img src="top.png" alt="Regione Lazio Logo">
 
-    <!-- Module Selection Screen -->
+    <!-- Schermata di Selezione del Modulo -->
     <div id="moduleSelection" class="module-selection">
         <h2>QUESITI PER LA PROVA D'ESAME NECESSARIA AL RILASCIO DEI CERTIFICATI DI ABILITAZIONE
             ALL'ACQUISTO E ALL'UTILIZZO DEI PRODOTTI FITOSANITARI E DI ABILITAZIONE PER L'ATTIVITÀ DI CONSULENTE</h2>
@@ -176,17 +215,28 @@
         <button class="module-button" onclick="selectModule(2)">Modulo 2: Fitoiatria (35–68)</button>
         <button class="module-button" onclick="selectModule(3)">Modulo 3: Prodotti fitosanitari (69–132)</button>
         <button class="module-button" onclick="selectModule(4)">Modulo 4: Difesa fitosanitaria (133–158)</button>
-        <button class="module-button" onclick="selectModule(5)">Modulo 5: Classificazione tossicologica
-            (159–243)</button>
+        <button class="module-button" onclick="selectModule(5)">Modulo 5: Classificazione tossicologica (159–243)</button>
         <button class="module-button" onclick="selectModule(6)">Modulo 6: Norme di sicurezza (244–349)</button>
         <button class="module-button" onclick="selectModule(7)">Modulo 7: Effetti sulla Salute (350–410)</button>
         <button class="module-button" onclick="selectModule(8)">Modulo 8: Sostenibilità ambientale (411–426)</button>
     </div>
 
-    <!-- Quiz Container (hidden until module is selected) -->
+    <!-- Contenitore del Quiz (nascosto finché non si seleziona un modulo) -->
     <div id="quizContainer" style="display:none;">
 
         <button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>
+
+        <!-- Barra di Progresso -->
+        <div id="progressBar">
+            <div id="progress"></div>
+        </div>
+
+        <!-- Contatore delle Risposte -->
+        <div id="score">
+            <span id="correctCount"><span class="icon-correct">✔</span> 0</span>
+            |
+            <span id="incorrectCount"><span class="icon-incorrect">✖</span> 0</span>
+        </div>
 
         <div class="question">
             <p id="questionText"><strong>Domanda:</strong> {question}</p>
@@ -201,8 +251,6 @@
         </div>
         <button id="nextButton" onclick="nextQuestion()">Successiva</button>
         <p id="feedback"></p>
-
-        <p id="score">Risposte Corrette: 0 | Risposte Errate: 0</p>
     </div>
 
     <script>
@@ -4472,22 +4520,11 @@
 
         let currentQuestion = 0;
         let filteredQuestions = [];
-
         let correctAnswers = 0;
         let incorrectAnswers = 0;
-
         let questionAnswered = false;
 
         function selectModule(moduleNumber) {
-            currentQuestion = 0;
-            correctAnswers = 0;
-            incorrectAnswers = 0;
-
-            // Se stai mostrando il contatore in tempo reale, resetta anche la visualizzazione
-            if (document.getElementById('score')) {
-                document.getElementById('score').innerText = 'Risposte Corrette: 0 | Risposte Errate: 0';
-            }
-            // Filter questions based on the selected module
             let start = 0, end = 0;
             if (moduleNumber === 1) { start = 1; end = 34; }
             else if (moduleNumber === 2) { start = 35; end = 68; }
@@ -4499,18 +4536,36 @@
             else if (moduleNumber === 8) { start = 411; end = 426; }
 
             filteredQuestions = questions.filter(q => q.number >= start && q.number <= end);
-            currentQuestion = 0;
 
-            // Hide module selection and show the quiz container
+            if (filteredQuestions.length === 0) {
+                alert('Non ci sono domande disponibili per questo modulo.');
+                returnToModuleSelection();
+                return;
+            }
+
+            currentQuestion = 0;
+            correctAnswers = 0;
+            incorrectAnswers = 0;
+            questionAnswered = false;
+
             document.getElementById('moduleSelection').style.display = 'none';
             document.getElementById('quizContainer').style.display = 'block';
 
-            // Load the first question
+            // Resetta la visualizzazione del contatore
+            document.getElementById('correctCount').innerHTML = '<span class="icon-correct">✔</span> 0';
+            document.getElementById('incorrectCount').innerHTML = '<span class="icon-incorrect">✖</span> 0';
+
+            // Resetta la barra di progresso
+            document.getElementById('progress').style.width = '0%';
+
             loadQuestion();
         }
 
         function loadQuestion() {
-            questionAnswered = false; // Resetta lo stato della domanda
+            if (filteredQuestions.length === 0) {
+                document.getElementById('quizContainer').innerHTML = '<p>Nessuna domanda disponibile per questo modulo.</p><button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>';
+                return;
+            }
 
             document.getElementById('questionText').innerHTML = filteredQuestions[currentQuestion].question;
             document.getElementById('label_a').innerText = filteredQuestions[currentQuestion].answers.a;
@@ -4518,25 +4573,35 @@
             document.getElementById('label_c').innerText = filteredQuestions[currentQuestion].answers.c;
             document.getElementById('feedback').innerText = '';
             document.getElementById('nextButton').style.display = 'none';
-            // Deseleziona le opzioni precedenti
+
+            // Resetta gli stili precedenti
+            document.getElementById('label_a').classList.remove('correct', 'incorrect', 'disabled');
+            document.getElementById('label_b').classList.remove('correct', 'incorrect', 'disabled');
+            document.getElementById('label_c').classList.remove('correct', 'incorrect', 'disabled');
+
+            // Resetta i radio button
             document.getElementById('answer_a').checked = false;
             document.getElementById('answer_b').checked = false;
             document.getElementById('answer_c').checked = false;
-            // Reset previous styles
-            document.getElementById('label_a').classList.remove('correct', 'incorrect');
-            document.getElementById('label_b').classList.remove('correct', 'incorrect');
-            document.getElementById('label_c').classList.remove('correct', 'incorrect');
 
-            // Nascondi il pulsante "Successiva" fino a quando l'utente non risponde
-            document.getElementById('nextButton').style.display = 'none';
+            // Abilita le opzioni di risposta
+            document.getElementById('answer_a').disabled = false;
+            document.getElementById('answer_b').disabled = false;
+            document.getElementById('answer_c').disabled = false;
+
+            questionAnswered = false;
+
+            // Aggiorna la barra di progresso
+            let progressPercentage = ((currentQuestion) / filteredQuestions.length) * 100;
+            document.getElementById('progress').style.width = progressPercentage + '%';
         }
 
         function checkAnswer(selectedValue) {
-
             if (questionAnswered) {
-                return; // Se la domanda è già stata risposta, non fare nulla
+                return; // Evita che la risposta venga registrata più di una volta
             }
-            questionAnswered = true; // Imposta la domanda come risolta
+            questionAnswered = true;
+
             const correctAnswer = filteredQuestions[currentQuestion].correctAnswer;
             if (selectedValue === correctAnswer) {
                 document.getElementById('label_' + correctAnswer).classList.add('correct');
@@ -4548,10 +4613,19 @@
             }
             document.getElementById('nextButton').style.display = 'inline';
 
-            // Aggiorna il contatore in tempo reale se presente
-            if (document.getElementById('score')) {
-                document.getElementById('score').innerText = 'Risposte Corrette: ' + correctAnswers + ' | Risposte Errate: ' + incorrectAnswers;
-            }
+            // Disabilita le opzioni di risposta
+            document.getElementById('answer_a').disabled = true;
+            document.getElementById('answer_b').disabled = true;
+            document.getElementById('answer_c').disabled = true;
+
+            // Aggiungi la classe 'disabled' ai label
+            document.getElementById('label_a').classList.add('disabled');
+            document.getElementById('label_b').classList.add('disabled');
+            document.getElementById('label_c').classList.add('disabled');
+
+            // Aggiorna il contatore
+            document.getElementById('correctCount').innerHTML = '<span class="icon-correct">✔</span> ' + correctAnswers;
+            document.getElementById('incorrectCount').innerHTML = '<span class="icon-incorrect">✖</span> ' + incorrectAnswers;
         }
 
         function nextQuestion() {
@@ -4559,13 +4633,28 @@
             if (currentQuestion < filteredQuestions.length) {
                 loadQuestion();
             } else {
-                document.getElementById('quizContainer').innerHTML = '<p>Modulo completato!</p>' +
-                    '<p>Risposte Corrette: ' + correctAnswers + '</p>' +
-                    '<p>Risposte Errate: ' + incorrectAnswers + '</p>' +
-                    '<button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>';
+                // Aggiorna la barra di progresso al 100%
+                document.getElementById('progress').style.width = '100%';
+
+                let resultMessage = '<h2>Modulo completato!</h2>';
+                resultMessage += '<p><span class="icon-correct">✔</span> Risposte Corrette: ' + correctAnswers + '</p>';
+                resultMessage += '<p><span class="icon-incorrect">✖</span> Risposte Errate: ' + incorrectAnswers + '</p>';
+
+                let scorePercentage = (correctAnswers / filteredQuestions.length) * 100;
+                resultMessage += '<p>Punteggio: ' + scorePercentage.toFixed(2) + '%</p>';
+
+                if (scorePercentage === 100) {
+                    resultMessage += '<p>Complimenti! Hai risposto correttamente a tutte le domande!</p>';
+                } else if (scorePercentage >= 70) {
+                    resultMessage += '<p>Ottimo lavoro! Hai superato il modulo con un buon punteggio.</p>';
+                } else {
+                    resultMessage += '<p>Puoi fare di meglio. Riprova per migliorare il tuo punteggio.</p>';
+                }
+
+                resultMessage += '<button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>';
+                document.getElementById('quizContainer').innerHTML = resultMessage;
             }
         }
-
 
         function returnToModuleSelection() {
             document.getElementById('quizContainer').style.display = 'none';
@@ -4573,3 +4662,6 @@
         }
 
     </script>
+</body>
+
+</html>
