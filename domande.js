@@ -914,7 +914,7 @@ const questions = [
         number: 92,
         question: "Domanda 92: Che cosa si intende per selettivit' di un insetticida?",
         answers: {
-            a: "La capacità di agire sugli insetti nocivi pur essendo di bassa tossicit' per l'uomo",
+            a: "La capacità di agire sugli insetti nocivi pur essendo di bassa tossicità per l'uomo",
             b: "La capacità di eliminare tutti gli insetti presenti nella coltura",
             c: "La capacità di agire nei confronti dei fitofagi e di rispettare il più possibile gli insetti utili"
         },
@@ -1096,7 +1096,7 @@ const questions = [
         answers: {
             a: "Aumento della produzione perché si eliminano tutte le infestanti",
             b: "Nessuno, se dato in pre-emergenza",
-            c: "Fitotossicit' per la coltura"
+            c: "Fitotossicità per la coltura"
         },
         correctAnswer: "c"
     },
@@ -1162,7 +1162,7 @@ const questions = [
     },
     {
         number: 117,
-        question: "Domanda 117: La fitotossicit' può essere causata dalla?",
+        question: "Domanda 117: La fitotossicità può essere causata dalla?",
         answers: {
             a: "eccessiva concentrazione della sostanza attiva",
             b: "bassa concentrazione della sostanza attiva",
@@ -1336,7 +1336,7 @@ const questions = [
         answers: {
             a: "La selezione di popolazioni di insetti resistenti ai prodotti fitosanitari",
             b: "La selezione di popolazioni di insetti antagonisti",
-            c: "La comparsa della fitotossicit'"
+            c: "La comparsa della fitotossicità"
         },
         correctAnswer: "a"
     },
@@ -1705,7 +1705,7 @@ const questions = [
         question: "Domanda 171: I prodotti sensibilizzanti per la pelle sono meno dannosi sugli insetti ed acari utili rispetto ai prodotti tossici di categoria 1, 2 e 3?",
         answers: {
             a: "Sì, sugli insetti e acari utili sono meno dannosi",
-            b: "No, l'effetto sugli insetti ed acari utili non è legato alla tossicit' per la salute umana",
+            b: "No, l'effetto sugli insetti ed acari utili non è legato alla tossicità per la salute umana",
             c: "Dipende da ciò che è riportato in etichetta e dalla DL50"
         },
         correctAnswer: "b"
@@ -1746,7 +1746,7 @@ const questions = [
         answers: {
             a: "Le frasi di rischio vengono sostituite con le indicazioni di pericolo",
             b: "Si aggiungono i consigli di prudenza",
-            c: "Si aggiunge la tossicit' DL50"
+            c: "Si aggiunge la tossicità DL50"
         },
         correctAnswer: "a"
     },
@@ -1846,7 +1846,7 @@ const questions = [
         answers: {
             a: "3 classi (pericoloso per la salute umana, pericoloso per l'ambiente, pericoloso per l'ambiente acquatico)",
             b: "4 classi (chimico-fisico, pericoloso per la salute umana, pericoloso per l'ambiente, supplementare)",
-            c: "5 classi (tossicit' acuta, cancerogenicit', pericolose per lo strato di ozono, pericoloso per l'ambiente acquatico, liquidi infiammabili ed esplosivi)"
+            c: "5 classi (tossicità acuta, cancerogenicit', pericolose per lo strato di ozono, pericoloso per l'ambiente acquatico, liquidi infiammabili ed esplosivi)"
         },
         correctAnswer: "b"
     },
@@ -2226,7 +2226,7 @@ const questions = [
         answers: {
             a: "Il residuo massimo di prodotto fitosanitario tollerato sui prodotti agricoli freschi o sulle derrate immesse al consumo",
             b: "La quantità massima di prodotto fitosanitario che è possibile distribuire in campo senza arrecare danni all'ambiente",
-            c: "La dose massima di prodotto fitosanitario tollerata dalla pianta affinch' non si verifichino delle ustioni o comunque fenomeni di fitotossicit'"
+            c: "La dose massima di prodotto fitosanitario tollerata dalla pianta affinch' non si verifichino delle ustioni o comunque fenomeni di fitotossicità"
         },
         correctAnswer: "a"
     },
@@ -2806,7 +2806,7 @@ const questions = [
         answers: {
             a: "almeno una volta l'anno",
             b: "tutte le volte in cui si cambia il tipo di miscela fitoiatrica",
-            c: "soltanto quando si impiegano prodotti ad elevata tossicit'"
+            c: "soltanto quando si impiegano prodotti ad elevata tossicità"
         },
         correctAnswer: "b"
     },
