@@ -4,9 +4,18 @@ let correctAnswers = 0;
 let incorrectAnswers = 0;
 let questionAnswered = false;
 
+// Salva il contenuto originale di 'quizContainer'
+const originalQuizContainerContent = document.getElementById('quizContainer').innerHTML;
+
 function selectModule(moduleNumber) {
     // Nascondi altre sezioni
     document.getElementById('infoSection').style.display = 'none';
+
+    // Ripristina il contenuto originale di 'quizContainer'
+    document.getElementById('quizContainer').innerHTML = originalQuizContainerContent;
+
+    // Riassegna gli event handler
+    assignEventHandlers();
 
     let start = 0, end = 0;
     if (moduleNumber === 1) { start = 1; end = 34; }
@@ -42,6 +51,19 @@ function selectModule(moduleNumber) {
     document.getElementById('progress').style.width = '0%';
 
     loadQuestion();
+}
+
+function assignEventHandlers() {
+    // Riassegna gli event handler per le opzioni di risposta
+    document.getElementById('answer_a').onclick = function() { checkAnswer('a'); };
+    document.getElementById('answer_b').onclick = function() { checkAnswer('b'); };
+    document.getElementById('answer_c').onclick = function() { checkAnswer('c'); };
+
+    // Riassegna l'event handler per il pulsante 'Successiva'
+    const nextButton = document.getElementById('nextButton');
+    if (nextButton) {
+        nextButton.onclick = nextQuestion;
+    }
 }
 
 function loadQuestion() {
@@ -143,6 +165,10 @@ function returnToModuleSelection() {
     document.getElementById('quizContainer').style.display = 'none';
     document.getElementById('infoSection').style.display = 'none';
     document.getElementById('moduleSelection').style.display = 'block';
+
+    // Ripristina il contenuto originale di 'quizContainer' e riassegna gli event handler
+    document.getElementById('quizContainer').innerHTML = originalQuizContainerContent;
+    assignEventHandlers();
 }
 
 function showInfo() {
