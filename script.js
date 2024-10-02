@@ -3,6 +3,7 @@ let filteredQuestions = [];
 let correctAnswers = 0;
 let incorrectAnswers = 0;
 let questionAnswered = false;
+let isExamSimulation = false;
 
 // Salva il contenuto originale di 'quizContainer'
 const originalQuizContainerContent = document.getElementById('quizContainer').innerHTML;
@@ -17,28 +18,37 @@ function selectModule(moduleNumber) {
     // Riassegna gli event handler
     assignEventHandlers();
 
-    let start = 0, end = 0;
-    if (moduleNumber === 1) { start = 1; end = 34; }
-    else if (moduleNumber === 2) { start = 35; end = 68; }
-    else if (moduleNumber === 3) { start = 69; end = 132; }
-    else if (moduleNumber === 4) { start = 133; end = 158; }
-    else if (moduleNumber === 5) { start = 159; end = 243; }
-    else if (moduleNumber === 6) { start = 244; end = 349; }
-    else if (moduleNumber === 7) { start = 350; end = 410; }
-    else if (moduleNumber === 8) { start = 411; end = 426; }
+    // Resetta le variabili
+    currentQuestion = 0;
+    correctAnswers = 0;
+    incorrectAnswers = 0;
+    questionAnswered = false;
 
-    filteredQuestions = questions.filter(q => q.number >= start && q.number <= end);
+    // Imposta 'isExamSimulation' in base al modulo selezionato
+    if (moduleNumber === 'exam') {
+        isExamSimulation = true;
+        // Simulazione Esame: Seleziona 50 domande secondo le specifiche
+        filteredQuestions = getExamQuestions();
+    } else {
+        isExamSimulation = false;
+        let start = 0, end = 0;
+        if (moduleNumber === 1) { start = 1; end = 34; }
+        else if (moduleNumber === 2) { start = 35; end = 68; }
+        else if (moduleNumber === 3) { start = 69; end = 132; }
+        else if (moduleNumber === 4) { start = 133; end = 158; }
+        else if (moduleNumber === 5) { start = 159; end = 243; }
+        else if (moduleNumber === 6) { start = 244; end = 349; }
+        else if (moduleNumber === 7) { start = 350; end = 410; }
+        else if (moduleNumber === 8) { start = 411; end = 426; }
+
+        filteredQuestions = questions.filter(q => q.number >= start && q.number <= end);
+    }
 
     if (filteredQuestions.length === 0) {
         alert('Non ci sono domande disponibili per questo modulo.');
         returnToModuleSelection();
         return;
     }
-
-    currentQuestion = 0;
-    correctAnswers = 0;
-    incorrectAnswers = 0;
-    questionAnswered = false;
 
     document.getElementById('moduleSelection').style.display = 'none';
     document.getElementById('quizContainer').style.display = 'block';
@@ -51,6 +61,58 @@ function selectModule(moduleNumber) {
     document.getElementById('progress').style.width = '0%';
 
     loadQuestion();
+}
+
+function getExamQuestions() {
+    // Definisci il numero di domande da estrarre per ciascun modulo
+    const questionsPerModule = {
+        1: 4,
+        2: 4,
+        3: 8,
+        4: 3,
+        5: 10,
+        6: 12,
+        7: 7,
+        8: 2
+    };
+
+    let selectedQuestions = [];
+
+    // Per ogni modulo, estrai il numero specificato di domande casuali
+    for (let moduleNumber = 1; moduleNumber <= 8; moduleNumber++) {
+        let start = 0, end = 0;
+        if (moduleNumber === 1) { start = 1; end = 34; }
+        else if (moduleNumber === 2) { start = 35; end = 68; }
+        else if (moduleNumber === 3) { start = 69; end = 132; }
+        else if (moduleNumber === 4) { start = 133; end = 158; }
+        else if (moduleNumber === 5) { start = 159; end = 243; }
+        else if (moduleNumber === 6) { start = 244; end = 349; }
+        else if (moduleNumber === 7) { start = 350; end = 410; }
+        else if (moduleNumber === 8) { start = 411; end = 426; }
+
+        // Ottieni tutte le domande del modulo corrente
+        let moduleQuestions = questions.filter(q => q.number >= start && q.number <= end);
+
+        // Mescola le domande del modulo
+        shuffleArray(moduleQuestions);
+
+        // Prendi il numero specificato di domande
+        let numQuestions = questionsPerModule[moduleNumber];
+        selectedQuestions = selectedQuestions.concat(moduleQuestions.slice(0, numQuestions));
+    }
+
+    // Ordina le domande selezionate in ordine crescente secondo il loro numero originale
+    selectedQuestions.sort((a, b) => a.number - b.number);
+
+    return selectedQuestions;
+}
+
+// Funzione per mescolare un array (Fisher-Yates shuffle)
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
 }
 
 function assignEventHandlers() {
@@ -72,7 +134,20 @@ function loadQuestion() {
         return;
     }
 
-    document.getElementById('questionText').innerHTML = filteredQuestions[currentQuestion].question;
+    if (isExamSimulation) {
+        // Numero sequenziale della domanda nel quiz (da 1 a 50)
+        let quizQuestionNumber = currentQuestion + 1;
+
+        // Numero originale della domanda
+        let originalQuestionNumber = filteredQuestions[currentQuestion].number;
+
+        // Aggiorna il testo della domanda con i numeri richiesti
+        document.getElementById('questionText').innerHTML = quizQuestionNumber + '/50<br><br><br>' + filteredQuestions[currentQuestion].question;
+    } else {
+        // Formato standard per gli altri moduli
+        document.getElementById('questionText').innerHTML = filteredQuestions[currentQuestion].question;
+    }
+
     document.getElementById('label_a').innerText = filteredQuestions[currentQuestion].answers.a;
     document.getElementById('label_b').innerText = filteredQuestions[currentQuestion].answers.b;
     document.getElementById('label_c').innerText = filteredQuestions[currentQuestion].answers.c;
@@ -141,19 +216,29 @@ function nextQuestion() {
         // Aggiorna la barra di progresso al 100%
         document.getElementById('progress').style.width = '100%';
 
-        let resultMessage = '<h2>Modulo completato!</h2>';
+        let resultMessage = '<h2>Quiz completato!</h2>';
         resultMessage += '<p><span class="icon-correct">✔</span> Risposte Corrette: ' + correctAnswers + '</p>';
         resultMessage += '<p><span class="icon-incorrect">✖</span> Risposte Errate: ' + incorrectAnswers + '</p>';
 
         let scorePercentage = (correctAnswers / filteredQuestions.length) * 100;
         resultMessage += '<p>Punteggio: ' + scorePercentage.toFixed(2) + '%</p>';
 
-        if (scorePercentage === 100) {
-            resultMessage += '<p>Complimenti! Hai risposto correttamente a tutte le domande!</p>';
-        } else if (scorePercentage >= 70) {
-            resultMessage += '<p>Ottimo lavoro! Hai superato il modulo con un buon punteggio.</p>';
+        if (isExamSimulation) {
+            // Messaggi specifici per la simulazione dell'esame
+            if (scorePercentage >= 60) {
+                resultMessage += '<p>Complimenti! Hai superato la simulazione dell\'esame.</p>';
+            } else {
+                resultMessage += '<p>Non hai raggiunto il punteggio minimo per superare l\'esame. Continua a studiare e riprova!</p>';
+            }
         } else {
-            resultMessage += '<p>Puoi fare di meglio. Riprova per migliorare il tuo punteggio.</p>';
+            // Messaggi per gli altri moduli
+            if (scorePercentage === 100) {
+                resultMessage += '<p>Complimenti! Hai risposto correttamente a tutte le domande!</p>';
+            } else if (scorePercentage >= 70) {
+                resultMessage += '<p>Ottimo lavoro! Hai superato il modulo con un buon punteggio.</p>';
+            } else {
+                resultMessage += '<p>Puoi fare di meglio. Riprova per migliorare il tuo punteggio.</p>';
+            }
         }
 
         resultMessage += '<button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>';

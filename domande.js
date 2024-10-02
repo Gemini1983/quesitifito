@@ -1195,7 +1195,7 @@ const questions = [
         question: "Domanda 120: E' possibile miscelare prodotti fitosanitari diversi?",
         answers: {
             a: "No, mai",
-            b: "Sì, previa consultazione delle indicazioni di compatibilit' riportate in etichetta",
+            b: "Sì, previa consultazione delle indicazioni di compatibilità riportate in etichetta",
             c: "Sì sempre, se aventi la medesima classificazione d'uso"
         },
         correctAnswer: "b"
@@ -1206,7 +1206,7 @@ const questions = [
         answers: {
             a: "Preparare una dose doppia di acqua, perché i prodotti sono due",
             b: "Preparare due soluzioni distinte e poi unirle, per renderle complementari",
-            c: "Leggere la voce compatibilit'' sulle due etichette"
+            c: "Leggere la voce compatibilità sulle due etichette"
         },
         correctAnswer: "c"
     },
@@ -1222,7 +1222,7 @@ const questions = [
     },
     {
         number: 123,
-        question: "Domanda 123: Cosa si intende per compatibilit'?",
+        question: "Domanda 123: Cosa si intende per compatibilità?",
         answers: {
             a: "La possibilità di miscelare solo prodotti acidi tra loro, solo prodotti alcalini tra loro e prodotti neutri con tutti gli altri",
             b: "La possibilità di miscelare prodotti acidi sia con prodotti alcalini che neutri",
@@ -1234,7 +1234,7 @@ const questions = [
         number: 124,
         question: "Domanda 124: Cosa si intende per prodotto neutro?",
         answers: {
-            a: "Un prodotto che, per problemi di incompatibilit' chimica, non è possibile miscelare",
+            a: "Un prodotto che, per problemi di incompatibilità chimica, non è possibile miscelare",
             b: "Un prodotto che risulta compatibile esclusivamente con i prodotti basici",
             c: "Un prodotto che risulta compatibile con prodotti acidi, basici e neutri"
         },
@@ -2826,7 +2826,7 @@ const questions = [
         answers: {
             a: "Ad assicurare l'omogeneit' della miscela acqua-prodotto fitosanitario",
             b: "A migliorare il risciacquo del serbatoio",
-            c: "A modificare la concentrazione della miscela acqua 'sostanza attiva"
+            c: "A modificare la concentrazione della miscela acqua sostanza attiva"
         },
         correctAnswer: "a"
     },
@@ -4196,7 +4196,7 @@ const questions = [
         answers: {
             a: "Le Zone Speciali di Conservazione (ZSC) e le Zone di Protezione Speciale (ZPS)",
             b: "Le Zone Speciali di Conservazione (ZSC), le Zone di Protezione Speciale (ZPS) e le Riserve naturali",
-            c: "Le Zone Speciali di Conservazione (ZSC), le Zone di Protezione Speciale (ZPS) e i Parchi regionali e nazionaliCos'è la valutazione di incidenza o VINCA'"
+            c: "Le Zone Speciali di Conservazione (ZSC), le Zone di Protezione Speciale (ZPS) e i Parchi regionali e nazionali"
         },
         correctAnswer: "a"
     },
