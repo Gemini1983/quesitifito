@@ -336,7 +336,7 @@ const questions = [
         answers: {
             a: "L'eliminazione di specie erbacee invasive, di nuova comparsa, diffi cilmente controllabili con i diserbanti disponibili",
             b: "Gli interventi diretti a punire la contraffazione ed il traffico illegale dei PF",
-            c: "Gli interventi per limitare la diffusione di avversit' delle piante particolarmente pericolose"
+            c: "Gli interventi per limitare la diffusione di avversità delle piante particolarmente pericolose"
         },
         correctAnswer: "c"
     },
@@ -442,7 +442,7 @@ const questions = [
     },
     {
         number: 45,
-        question: "Domanda 45: Le avversit' fungine, in generale sono favorite dalle seguenti condizioni ambientali",
+        question: "Domanda 45: Le avversità fungine, in generale sono favorite dalle seguenti condizioni ambientali",
         answers: {
             a: "caldo asciutte",
             b: "freddo eccessivo",
@@ -696,7 +696,7 @@ const questions = [
         answers: {
             a: "Un prodotto che può essere acquistato solamente da chi possiede il certificato di abilitazione",
             b: "E' la parte del formulato commerciale che serve per migliorare le prestazioni del prodotto",
-            c: "E' la sostanza che svolge un'attività di contrasto nei confronti degli organismi nocivi o delle avversit' da combattere"
+            c: "E' la sostanza che svolge un'attività di contrasto nei confronti degli organismi nocivi o delle avversità da combattere"
         },
         correctAnswer: "c"
     },
@@ -705,7 +705,7 @@ const questions = [
         question: "Domanda 71: Perchè è importante conoscere l'attività della sostanza attiva?",
         answers: {
             a: "Perchè specifica se il prodotto è nocivo nei confronti degli insetti ed acari utili",
-            b: "Perchè indirizza l'agricoltore nella scelta del prodotto in relazione all'avversit' da combattere",
+            b: "Perchè indirizza l'agricoltore nella scelta del prodotto in relazione all'avversità da combattere",
             c: "Perchè indica la quantità minima di prodotto necessaria per combattere i parassiti"
         },
         correctAnswer: "b"
@@ -834,7 +834,7 @@ const questions = [
         number: 84,
         question: "Domanda 84: Qual è la caratteristica di un prodotto fungicida sistemico?",
         answers: {
-            a: "La capacità di agire sistematicamente nei confronti di tutte le avversit' presenti sulla pianta indipendentemente dal tipo di patogeno",
+            a: "La capacità di agire sistematicamente nei confronti di tutte le avversità presenti sulla pianta indipendentemente dal tipo di patogeno",
             b: "La caratteristica di non risultare tossico per l'operatore che effettua il trattamento e di rispettare l'ambiente",
             c: "La capacità di essere assorbito dai tessuti vegetali, di trasferirsi per via linfatica nella pianta, e quindi combattere i patogeni non raggiungibili con i prodotti di copertura"
         },
@@ -1185,7 +1185,7 @@ const questions = [
         question: "Domanda 119: Che cosa è la persistenza d'azione di un prodotto fitosanitario?",
         answers: {
             a: "La capacità di non essere asportato dalla pioggia",
-            b: "La capacità di essere attivo nel tempo, nei confronti delle avversit' per cui è registrato",
+            b: "La capacità di essere attivo nel tempo, nei confronti delle avversità per cui è registrato",
             c: "La capacità di agire anche durante il riposo vegetativo di una pianta"
         },
         correctAnswer: "b"
@@ -1316,7 +1316,7 @@ const questions = [
         answers: {
             a: "Aumentare la dose del prodotto impiegato per aumentare proporzionalmente l'efficacia del trattamento",
             b: "Sostituire il prodotto impiegato con uno più tossico e caratterizzato da una differente modalità di azione",
-            c: "Consultare un tecnico specializzato ed eventualmente sostituire il prodotto con un altro, registrato per la coltura e l'avversit' da combattere"
+            c: "Consultare un tecnico specializzato ed eventualmente sostituire il prodotto con un altro, registrato per la coltura e l'avversità da combattere"
         },
         correctAnswer: "c"
     },
@@ -1355,7 +1355,7 @@ const questions = [
         question: "Domanda 136: E' corretto eseguire i trattamenti fitosanitari a calendario seguendo esclusivamente le fasi fenologiche?",
         answers: {
             a: "No, perché non si è certi che il parassita sia presente, o abbia raggiunto un livello di reale dannosità per la coltura",
-            b: "Sì, perché coSì si è sicuri di colpire in tempo l'avversit' da combattere",
+            b: "Sì, perché coSì si è sicuri di colpire in tempo l'avversità da combattere",
             c: "Sì, ma solo se il trattamento viene effettuato a scopo preventivo con prodotti di copertura"
         },
         correctAnswer: "a"
