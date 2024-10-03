@@ -14,7 +14,7 @@ const questions = [
         number: 2,
         question: "Domanda 2: Il regolamento CLP, relativo alla classificazione, etichettatura e confezionamento dei PF, prevede:",
         answers: {
-            a: "l'obbligo della Scheda dati di Sicurezza per i PF classifi cati pericolosi",
+            a: "l'obbligo della Scheda dati di Sicurezza per i PF classificati pericolosi",
             b: "l'armonizzazione delle indicazioni di pericolo a livello mondiale",
             c: "l'obbligo di fornire all'acquirente i PF sempre nei loro imballaggi originali"
         },

@@ -4,6 +4,8 @@ let correctAnswers = 0;
 let incorrectAnswers = 0;
 let questionAnswered = false;
 let isExamSimulation = false;
+let examTimer = null;
+let timeRemaining = 0; // in secondi
 
 // Salva il contenuto originale di 'quizContainer'
 const originalQuizContainerContent = document.getElementById('quizContainer').innerHTML;
@@ -24,11 +26,21 @@ function selectModule(moduleNumber) {
     incorrectAnswers = 0;
     questionAnswered = false;
 
+    // Resetta il timer se attivo
+    if (examTimer) {
+        clearInterval(examTimer);
+        examTimer = null;
+    }
+
     // Imposta 'isExamSimulation' in base al modulo selezionato
     if (moduleNumber === 'exam') {
         isExamSimulation = true;
         // Simulazione Esame: Seleziona 50 domande secondo le specifiche
         filteredQuestions = getExamQuestions();
+
+        // Inizializza il timer (90 minuti = 5400 secondi)
+        timeRemaining = 5400;
+        startExamTimer();
     } else {
         isExamSimulation = false;
         let start = 0, end = 0;
@@ -142,7 +154,7 @@ function loadQuestion() {
         let originalQuestionNumber = filteredQuestions[currentQuestion].number;
 
         // Aggiorna il testo della domanda con i numeri richiesti
-        document.getElementById('questionText').innerHTML = quizQuestionNumber + '/50<br><br><br>' + filteredQuestions[currentQuestion].question;
+        document.getElementById('questionText').innerHTML =  quizQuestionNumber +  '/50<br><br><br>' + filteredQuestions[currentQuestion].question;
     } else {
         // Formato standard per gli altri moduli
         document.getElementById('questionText').innerHTML = filteredQuestions[currentQuestion].question;
@@ -223,12 +235,16 @@ function nextQuestion() {
         let scorePercentage = (correctAnswers / filteredQuestions.length) * 100;
         resultMessage += '<p>Punteggio: ' + scorePercentage.toFixed(2) + '%</p>';
 
+        let errors = filteredQuestions.length - correctAnswers;
+
         if (isExamSimulation) {
             // Messaggi specifici per la simulazione dell'esame
-            if (scorePercentage >= 60) {
+            if (errors <= 5) {
                 resultMessage += '<p>Complimenti! Hai superato la simulazione dell\'esame.</p>';
+            } else if (errors >= 6 && errors <= 10) {
+                resultMessage += '<p>Hai commesso ' + errors + ' errori. Dovrai sostenere una prova orale per superare l\'esame.</p>';
             } else {
-                resultMessage += '<p>Non hai raggiunto il punteggio minimo per superare l\'esame. Continua a studiare e riprova!</p>';
+                resultMessage += '<p>Hai commesso ' + errors + ' errori. Non hai ottenuto l\'abilitazione. Continua a studiare e riprova!</p>';
             }
         } else {
             // Messaggi per gli altri moduli
@@ -243,7 +259,54 @@ function nextQuestion() {
 
         resultMessage += '<button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>';
         document.getElementById('quizContainer').innerHTML = resultMessage;
+
+        // Se il timer è attivo, fermalo
+        if (isExamSimulation && examTimer) {
+            clearInterval(examTimer);
+            examTimer = null;
+        }
     }
+}
+
+function startExamTimer() {
+    updateTimerDisplay(); // Aggiorna subito la visualizzazione
+
+    examTimer = setInterval(function() {
+        timeRemaining--;
+
+        if (timeRemaining <= 0) {
+            // Il tempo è scaduto
+            clearInterval(examTimer);
+            examTimer = null;
+            endExamDueToTimeout();
+        } else {
+            updateTimerDisplay();
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    // Converti 'timeRemaining' in ore, minuti e secondi
+    let hours = Math.floor(timeRemaining / 3600);
+    let minutes = Math.floor((timeRemaining % 3600) / 60);
+    let seconds = timeRemaining % 60;
+
+    let timeString = (hours > 0 ? hours.toString().padStart(2, '0') + ':' : '') +
+        minutes.toString().padStart(2, '0') + ':' +
+        seconds.toString().padStart(2, '0');
+
+    document.getElementById('timer').innerHTML = 'Tempo rimanente: ' + timeString;
+}
+
+function endExamDueToTimeout() {
+    // Mostra un messaggio che il tempo è scaduto
+    alert('Il tempo a disposizione è terminato. L\'esame verrà concluso.');
+
+    // Imposta 'currentQuestion' al totale delle domande per forzare la fine dell'esame
+    currentQuestion = filteredQuestions.length - 1;
+
+    // Chiamare 'nextQuestion' per mostrare il risultato finale
+    nextQuestion();
 }
 
 function returnToModuleSelection() {
@@ -254,6 +317,12 @@ function returnToModuleSelection() {
     // Ripristina il contenuto originale di 'quizContainer' e riassegna gli event handler
     document.getElementById('quizContainer').innerHTML = originalQuizContainerContent;
     assignEventHandlers();
+
+    // Resetta il timer se attivo
+    if (examTimer) {
+        clearInterval(examTimer);
+        examTimer = null;
+    }
 }
 
 function showInfo() {

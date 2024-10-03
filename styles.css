@@ -216,6 +216,12 @@ button {
     line-height: 1.4;
 }
 
+#timer {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
 #infoSection button {
     margin-top: 20px;
     background-color: #007BFF;
