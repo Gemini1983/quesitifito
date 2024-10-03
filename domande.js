@@ -406,7 +406,7 @@ const questions = [
         answers: {
             a: "L'accumulo nel terreno di residui chimici ed il selezionarsi di erbe resistenti",
             b: "La riduzione di malattie delle piante con l'aumento della produzione agricola",
-            c: "Il miglioramento della struttura del terreno e della sua fertilit'"
+            c: "Il miglioramento della struttura del terreno e della sua fertilità"
         },
         correctAnswer: "a"
     },
@@ -912,7 +912,7 @@ const questions = [
     },
     {
         number: 92,
-        question: "Domanda 92: Che cosa si intende per selettivit' di un insetticida?",
+        question: "Domanda 92: Che cosa si intende per selettività di un insetticida?",
         answers: {
             a: "La capacità di agire sugli insetti nocivi pur essendo di bassa tossicità per l'uomo",
             b: "La capacità di eliminare tutti gli insetti presenti nella coltura",
@@ -1022,7 +1022,7 @@ const questions = [
     },
     {
         number: 103,
-        question: "Domanda 103: Che cosa si intende per selettivit' di un diserbante?",
+        question: "Domanda 103: Che cosa si intende per selettività di un diserbante?",
         answers: {
             a: "Che solo la coltura è danneggiata mentre le erbe infestanti sono risparmiate",
             b: "Che il prodotto agisce sulle erbe infestanti da controllare rispettando la coltura",
@@ -1306,7 +1306,7 @@ const questions = [
         answers: {
             a: "Nessuno, la loro efficacia non cambia",
             b: "Economici, in quanto diminuisce la quantità di prodotto che viene distribuita sulla coltura",
-            c: "Minore pericolosit' per l'operatore e maggiore facilit' nella preparazione della miscela"
+            c: "Minore pericolosità per l'operatore e maggiore facilità nella preparazione della miscela"
         },
         correctAnswer: "c"
     },
@@ -2502,11 +2502,11 @@ const questions = [
     },
     {
         number: 251,
-        question: "Domanda 251: Quale responsabilit' assume chi acquista prodotti fitosanitari ad uso professionale?",
+        question: "Domanda 251: Quale responsabilità assume chi acquista prodotti fitosanitari ad uso professionale?",
         answers: {
-            a: "Nessuna responsabilit' se il prodotto viene impiegato da coadiuvanti familiari",
-            b: "La responsabilit' diretta nel caso di impiego del prodotto da parte di persone minorenni",
-            c: "La responsabilit' diretta di un'idonea conservazione e di un impiego corretto del prodotto"
+            a: "Nessuna responsabilità se il prodotto viene impiegato da coadiuvanti familiari",
+            b: "La responsabilità diretta nel caso di impiego del prodotto da parte di persone minorenni",
+            c: "La responsabilità diretta di un'idonea conservazione e di un impiego corretto del prodotto"
         },
         correctAnswer: "c"
     },
@@ -2545,7 +2545,7 @@ const questions = [
         question: "Domanda 255: Quali sono i rischi nell'utilizzare prodotti illegali?",
         answers: {
             a: "Rischi legati a frode fiscale per l'agricoltore con ripercussioni giudiziarie e sanzionatorie",
-            b: "Rischi per la collettivit', per l'agricoltore e per le aziende produttrici di prodotti fitosanitari",
+            b: "Rischi per la collettività, per l'agricoltore e per le aziende produttrici di prodotti fitosanitari",
             c: "Rischi economici per le aziende produttrici autorizzate che subiscono la concorrenza sleale da parte delle aziende illegali"
         },
         correctAnswer: "b"
@@ -3066,7 +3066,7 @@ const questions = [
         answers: {
             a: "Adattare perfettamente l'irroratrice alla coltura da trattare ed alla sua fase fenologica",
             b: "Verificare che la distribuzione del prodotto fitosanitario sia uniforme ed omogeneo",
-            c: "Verificare i parametri di uniformità, funzionalit' e tenuta dei diversi componenti della macchina"
+            c: "Verificare i parametri di uniformità, funzionalità e tenuta dei diversi componenti della macchina"
         },
         correctAnswer: "a"
     },
@@ -3166,7 +3166,7 @@ const questions = [
         answers: {
             a: "La garanzia del possesso di requisiti di sicurezza stabiliti a livello comunitario",
             b: "La garanzia del possesso di dispositivi di sicurezza degli ingranaggi e degli organi di trasmissione, come stabilito a livello comunitario",
-            c: "La garanzia del possesso di organi di comando per la facile manovrabilit' da parte dell'agricoltore, come stabilito a livello comunitario"
+            c: "La garanzia del possesso di organi di comando per la facile manovrabilità da parte dell'agricoltore, come stabilito a livello comunitario"
         },
         correctAnswer: "a"
     },
