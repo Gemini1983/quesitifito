@@ -10,22 +10,28 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f0f2f5;
     color: #333;
+    background-image: url('b2cb249f-3950-43f2-a387-5b76d2f360bf.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed; /* Mantiene l'immagine fissa durante lo scroll */
 }
 
 /* Contenitore principale */
 .container {
     width: 90%;
     max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px 0;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Sfondo bianco semi-trasparente per la leggibilità */
+    border-radius: 10px;
 }
 
 /* Logo */
 img {
     display: block;
-    margin: 20px auto;
+    margin: 0 auto 20px auto;
     width: 150px;
     height: auto;
 }
@@ -72,13 +78,13 @@ h3 {
     padding: 20px 30px;
     font-size: 1.2em;
     font-weight: 600;
-    background-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.9);
     color: white;
     border: none;
     border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    text-align: center; /* Aggiunto per centrare il testo */
+    text-align: center;
 }
 
 .exam-button i {
@@ -86,7 +92,7 @@ h3 {
 }
 
 .exam-button:hover {
-    background-color: #218838;
+    background-color: rgba(33, 136, 56, 0.9);
     transform: translateY(-2px);
 }
 
@@ -121,7 +127,7 @@ h3 {
     padding: 15px;
     font-size: 1em;
     font-weight: 500;
-    background-color: #007BFF;
+    background-color: rgba(0, 123, 255, 0.9);
     color: white;
     border: none;
     border-radius: 10px;
@@ -145,7 +151,7 @@ h3 {
 }
 
 .module-button:hover {
-    background-color: #0056b3;
+    background-color: rgba(0, 86, 179, 0.9);
     transform: translateY(-2px);
 }
 
@@ -168,7 +174,7 @@ h3 {
 
 /* Quiz Container */
 #quizContainer {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -192,8 +198,8 @@ h3 {
     padding: 15px 20px;
     margin: 10px 0;
     font-size: 1.1em;
-    background-color: #f8f9fa;
-    border: 2px solid #e9ecef;
+    background-color: rgba(248, 249, 250, 0.9);
+    border: 2px solid rgba(233, 236, 239, 0.9);
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s;
@@ -226,18 +232,18 @@ h3 {
 }
 
 .answer-option:hover {
-    background-color: #e2e6ea;
-    border-color: #dae0e5;
+    background-color: rgba(226, 230, 234, 0.9);
+    border-color: rgba(218, 224, 229, 0.9);
 }
 
 .answer-option.correct {
-    background-color: #d4edda !important;
-    border-color: #c3e6cb !important;
+    background-color: rgba(212, 237, 218, 0.9) !important;
+    border-color: rgba(195, 230, 203, 0.9) !important;
 }
 
 .answer-option.incorrect {
-    background-color: #f8d7da !important;
-    border-color: #f5c6cb !important;
+    background-color: rgba(248, 215, 218, 0.9) !important;
+    border-color: rgba(245, 198, 203, 0.9) !important;
 }
 
 .answer-option.disabled {
@@ -252,7 +258,7 @@ button {
     padding: 15px;
     font-size: 1.1em;
     font-weight: 500;
-    background-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.9);
     color: white;
     border: none;
     border-radius: 8px;
@@ -263,7 +269,7 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: rgba(33, 136, 56, 0.9);
     transform: translateY(-2px);
 }
 
@@ -308,7 +314,7 @@ button:active {
 /* Barra di Progresso */
 #progressBar {
     width: 100%;
-    background-color: #e9ecef;
+    background-color: rgba(233, 236, 239, 0.9);
     border-radius: 13px;
     margin-bottom: 20px;
     overflow: hidden;
@@ -350,7 +356,7 @@ button:active {
 #infoSection {
     display: none;
     margin-top: 20px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 8px;
 }
@@ -380,7 +386,7 @@ button:active {
 
 #infoSection button {
     margin-top: 20px;
-    background-color: #007BFF;
+    background-color: rgba(0, 123, 255, 0.9);
 }
 
 /* Disclaimer */
@@ -389,6 +395,7 @@ button:active {
     color: #555;
     border-top: 1px solid #ccc;
     padding-top: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 /* Media query per dispositivi mobili */
