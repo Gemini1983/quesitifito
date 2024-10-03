@@ -514,7 +514,7 @@ const questions = [
         number: 52,
         question: "Domanda 52: Gli acari parassiti delle piante:",
         answers: {
-            a: "causano prevalentemente decolorazioni, bronzature fogliari e rugginosit' sui frutti",
+            a: "causano prevalentemente decolorazioni, bronzature fogliari e rugginosità sui frutti",
             b: "causano decolorazioni ed erosioni fogliari, oltre all'accartocciamento delle foglie",
             c: "arrecano danni principalmente in quanto sono in grado di propagare altre pericolose malattie, come le virosi"
         },
@@ -775,7 +775,7 @@ const questions = [
         question: "Domanda 78: I corroboranti sono:",
         answers: {
             a: "sono sostanze di origine naturale, diverse dai fertilizzanti, che migliorano la resistenza delle piante nei confronti degli organismi nocivi e le proteggono da danni non provocati da parassiti",
-            b: "sono sostanze che sostituiscono i coformulanti quando questi non sono gi' presenti nel prodotto fitosanitario",
+            b: "sono sostanze che sostituiscono i coformulanti quando questi non sono già presenti nel prodotto fitosanitario",
             c: "sono sostanze di origine naturale che vengono distribuite al terreno e che aumentano l'assorbimento dei fertilizzanti"
         },
         correctAnswer: "a"
@@ -825,7 +825,7 @@ const questions = [
         question: "Domanda 83: Un trattamento fungicida curativo?",
         answers: {
             a: "E' efficace soprattutto se l'intervento è tempestivo",
-            b: "non è utile per la coltura perché l'infezione è gi' in atto",
+            b: "non è utile per la coltura perché l'infezione è già in atto",
             c: "deve essere fatto con prodotti citotropici o sistemici"
         },
         correctAnswer: "c"
@@ -856,7 +856,7 @@ const questions = [
         answers: {
             a: "Preventiva: impedisce lo sviluppo dell'infezione",
             b: "Curativa: consente di combattere la malattia durante l'incubazione",
-            c: "Eradicante: blocca lo sviluppo di infezioni gi' manifeste"
+            c: "Eradicante: blocca lo sviluppo di infezioni già manifeste"
         },
         correctAnswer: "a"
     },
@@ -1244,7 +1244,7 @@ const questions = [
         number: 125,
         question: "Domanda 125: Quali prodotti fitosanitari non è possibile miscelare?",
         answers: {
-            a: "Pi' insetticidi",
+            a: "Più insetticidi",
             b: "Insetticidi e fungicidi",
             c: "Insetticidi ed erbicidi"
         },
@@ -1402,7 +1402,7 @@ const questions = [
     },
     {
         number: 141,
-        question: "Domanda 141: Qual è un possibile mezzo di previsione delle infezioni fungine e quindi della necessit' di effettuare i trattamenti ?",
+        question: "Domanda 141: Qual è un possibile mezzo di previsione delle infezioni fungine e quindi della necessità di effettuare i trattamenti ?",
         answers: {
             a: "Il controllo dei parametri meteorologici",
             b: "Il controllo dell'umidità relativa dell'aria",
@@ -1616,7 +1616,7 @@ const questions = [
         answers: {
             a: "Sono etichettati e contrassegnati con il simbolo di pericolo T, con teschio su tibie incrociate di colore nero in campo giallo arancione e l'indicazione di pericolo Tossico",
             b: "Sono etichettati e contrassegnati in caratteri ben visibili: attenzione, manipolare con prudenza 'Prodotto Tossico'",
-            c: "Sono etichettati e contrassegnati con croce di Sant'Andrea in un riquadro rettangolare di colore giallo-arancio e la scritta Tossico'"
+            c: "Sono etichettati e contrassegnati con croce di Sant'Andrea in un riquadro rettangolare di colore giallo-arancio e la scritta Tossico"
         },
         correctAnswer: "a"
     },
@@ -1626,7 +1626,7 @@ const questions = [
         answers: {
             a: "Sono etichettati e contrassegnati con un teschio nero su ossa incrociate inserite in un quadrato rettangolare di colore giallo-arancio e l'indicazione di pericolo 'Nocivo'",
             b: "Sono etichettati e contrassegnati con il simbolo di pericolo Xn, con croce di S. Andrea nera in campo giallo arancione e l'indicazione di pericolo Nocivo",
-            c: "Sono etichettati e contrassegnati con croce di S. Andrea nera in campo giallo arancione e l'indicazione di pericolo Prodotto Nocivo'"
+            c: "Sono etichettati e contrassegnati con croce di S. Andrea nera in campo giallo arancione e l'indicazione di pericolo Prodotto Nocivo"
         },
         correctAnswer: "b"
     },
@@ -1656,7 +1656,7 @@ const questions = [
         answers: {
             a: "Sono etichettati e contrassegnati con un teschio nero su ossa incrociate inserite in un riquadro rettangolare di colore giallo-arancio e l'indicazione di pericolo Irritante",
             b: "Sono etichettati e contrassegnati con il simbolo di pericolo Xn, con croce di S. Andrea nera in campo giallo arancio e l'indicazione di pericolo Nocivo",
-            c: "Sono etichettati e contrassegnati con il simbolo di pericolo Xi, con croce di S. Andrea nera in campo giallo-arancio e l'indicazione di pericolo Irritante'"
+            c: "Sono etichettati e contrassegnati con il simbolo di pericolo Xi, con croce di S. Andrea nera in campo giallo-arancio e l'indicazione di pericolo Irritante"
         },
         correctAnswer: "c"
     },
@@ -1846,7 +1846,7 @@ const questions = [
         answers: {
             a: "3 classi (pericoloso per la salute umana, pericoloso per l'ambiente, pericoloso per l'ambiente acquatico)",
             b: "4 classi (chimico-fisico, pericoloso per la salute umana, pericoloso per l'ambiente, supplementare)",
-            c: "5 classi (tossicità acuta, cancerogenicit', pericolose per lo strato di ozono, pericoloso per l'ambiente acquatico, liquidi infiammabili ed esplosivi)"
+            c: "5 classi (tossicità acuta, cancerogenicità, pericolose per lo strato di ozono, pericoloso per l'ambiente acquatico, liquidi infiammabili ed esplosivi)"
         },
         correctAnswer: "b"
     },
@@ -1945,7 +1945,7 @@ const questions = [
         question: "Domanda 195: Come sono etichettati e contrassegnati i prodotti fitosanitari sensibilizzanti per inalazione?",
         answers: {
             a: "Sono etichettati e contrassegnati con un teschio nero su ossa incrociate inserite in un quadrato rettangolare di colore giallo-arancio e la scritta 'Irritante",
-            b: "Con la sola scritta 'Nocivo'', senza nessun contrassegno e disegno particolare",
+            b: "Con la sola scritta 'Nocivo', senza nessun contrassegno e disegno particolare",
             c: "Sono etichettati e contrassegnati con un pittogramma a forma di losanga con fondo bianco e bordo rosso contenente il simbolo della persona danneggiata di colore nero con avvertenza sottostante di 'pericolo..."
         },
         correctAnswer: "c"
@@ -1956,7 +1956,7 @@ const questions = [
         answers: {
             a: "Sono etichettati e contrassegnati con un teschio nero su ossa incrociate inserite in un quadrato rettangolare di colore giallo-arancio e la scritta 'Irritante",
             b: "Sono etichettati e contrassegnati con un pittogramma a forma di losanga con fondo bianco e bordo rosso contenente il simbolo del punto esclamativo di colore nero con avvertenza sottostante di 'attenzione?",
-            c: "Con la sola scritta 'Nocivo'', senza disegni particolari, ma il colore e sempre giallo-arancio"
+            c: "Con la sola scritta 'Nocivo', senza disegni particolari, ma il colore e sempre giallo-arancio"
         },
         correctAnswer: "b"
     },
@@ -1976,7 +1976,7 @@ const questions = [
         answers: {
             a: "Sono etichettati e contrassegnati con un pittogramma a forma di losanga con fondo bianco e bordo rosso contenente il simbolo della persona danneggiata punto esclamativo di colore nero con avvertenza sottostante 'attenzione'",
             b: "Con la sola scritta 'Nocivo', senza nessun contrassegno e disegno particolare",
-            c: "Sono etichettati e contrassegnati con il simbolo di pericolo Xn, con croce di S. Andrea nera in campo giallo arancio e l'indicazione di pericolo Nocivo'"
+            c: "Sono etichettati e contrassegnati con il simbolo di pericolo Xn, con croce di S. Andrea nera in campo giallo arancio e l'indicazione di pericolo Nocivo"
         },
         correctAnswer: "a"
     },
@@ -2152,7 +2152,7 @@ const questions = [
     },
     {
         number: 216,
-        question: "Domanda 216: Se si rende necessario eseguire un trattamento in prossimit' della raccolta, quale tipo di prodotto occorre impiegare?",
+        question: "Domanda 216: Se si rende necessario eseguire un trattamento in prossimità della raccolta, quale tipo di prodotto occorre impiegare?",
         answers: {
             a: "Un prodotto fitosanitario che non venga assorbito per via cutanea per evitare rischi a carico della salute di chi esegue la raccolta",
             b: "Un prodotto fitosanitario che possieda un tempo di carenza inferiore a quello che intercorre tra il trattamento e la presumibile data di raccolta",
@@ -2226,7 +2226,7 @@ const questions = [
         answers: {
             a: "Il residuo massimo di prodotto fitosanitario tollerato sui prodotti agricoli freschi o sulle derrate immesse al consumo",
             b: "La quantità massima di prodotto fitosanitario che è possibile distribuire in campo senza arrecare danni all'ambiente",
-            c: "La dose massima di prodotto fitosanitario tollerata dalla pianta affinch' non si verifichino delle ustioni o comunque fenomeni di fitotossicità"
+            c: "La dose massima di prodotto fitosanitario tollerata dalla pianta affinchè non si verifichino delle ustioni o comunque fenomeni di fitotossicità"
         },
         correctAnswer: "a"
     },
@@ -2402,7 +2402,7 @@ const questions = [
     },
     {
         number: 241,
-        question: "Domanda 241: Nel caso si debbano trattare 9.000 metri quadrati di terreno e la dose prescritta in etichetta sia di un litro per ettaro si dovr':",
+        question: "Domanda 241: Nel caso si debbano trattare 9.000 metri quadrati di terreno e la dose prescritta in etichetta sia di un litro per ettaro si dovrà:",
         answers: {
             a: "usare comunque un litro",
             b: "usare 0,9 litri e conservare il residuo",
@@ -2435,7 +2435,7 @@ const questions = [
         question: "Domanda 244: L'immissione in commercio e la produzione dei prodotti fitosanitari sono soggette ad una specifica autorizzazione?",
         answers: {
             a: "Non necessitano di autorizzazione perché i prodotti fitosanitari sono di libera produzione e vendita",
-            b: "Sono soggette ad autorizzazione dell'Azienda Unit' Sanitaria Locale",
+            b: "Sono soggette ad autorizzazione dell'Azienda Unità Sanitaria Locale",
             c: "Sono soggette ad autorizzazione del Ministero della Salute"
         },
         correctAnswer: "c"
@@ -2532,7 +2532,7 @@ const questions = [
     },
     {
         number: 254,
-        question: "Domanda 254: In caso di dubbi circa la provenienza e l'autenticit' di prodotti fitosanitari, cosa fare?",
+        question: "Domanda 254: In caso di dubbi circa la provenienza e l'autenticità di prodotti fitosanitari, cosa fare?",
         answers: {
             a: "Riportare i prodotti fitosanitari appena acquistati al rivenditore, per non correre rischi",
             b: "Avvisare le autorità competenti",
@@ -2782,10 +2782,10 @@ const questions = [
     },
     {
         number: 279,
-        question: "Domanda 279: Quali precauzioni è d'obbligo adottare trattando in prossimit' di strade, corsi d'acqua e colture confinanti?",
+        question: "Domanda 279: Quali precauzioni è d'obbligo adottare trattando in prossimità di strade, corsi d'acqua e colture confinanti?",
         answers: {
             a: "Nessuna precauzione se il prodotto fitosanitario non è classificato come molto tossico, tossico o nocivo",
-            b: "Tutte le precauzioni affinch' la nube irrorante non fuoriesca dall'appezzamento irrorato",
+            b: "Tutte le precauzioni affinchè la nube irrorante non fuoriesca dall'appezzamento irrorato",
             c: "Nessuna precauzione particolare se il trattamento viene effettuato in assenza di vento"
         },
         correctAnswer: "b"
@@ -2794,7 +2794,7 @@ const questions = [
         number: 280,
         question: "Domanda 280: L'azionamento del sistema lava impianto a fine trattamento consente di:",
         answers: {
-            a: "diluire la miscela residua nel serbatoio che sar' poi distribuita direttamente sulla coltura",
+            a: "diluire la miscela residua nel serbatoio che sarà poi distribuita direttamente sulla coltura",
             b: "effettuare un risciacquo sommario delle pareti interne del serbatoio e delle tubazioni",
             c: "effettuare direttamente in campo il risciacquo del serbatoio e delle tubazioni in modo da poter distribuire l'acqua di lavaggio direttamente sulle colture"
         },
@@ -2812,7 +2812,7 @@ const questions = [
     },
     {
         number: 282,
-        question: "Domanda 282: Com'' giusto che sia il serbatoio della macchina irroratrice?",
+        question: "Domanda 282: Come è giusto che sia il serbatoio della macchina irroratrice?",
         answers: {
             a: "Con pareti interne lisce, con spigoli e con agitatore",
             b: "Con pareti interne lisce, senza spigoli e con agitatore",
@@ -2824,7 +2824,7 @@ const questions = [
         number: 283,
         question: "Domanda 283: A cosa serve l'agitatore nel serbatoio delle macchine irroratrici?",
         answers: {
-            a: "Ad assicurare l'omogeneit' della miscela acqua-prodotto fitosanitario",
+            a: "Ad assicurare l'omogeneità della miscela acqua-prodotto fitosanitario",
             b: "A migliorare il risciacquo del serbatoio",
             c: "A modificare la concentrazione della miscela acqua sostanza attiva"
         },
@@ -3066,7 +3066,7 @@ const questions = [
         answers: {
             a: "Adattare perfettamente l'irroratrice alla coltura da trattare ed alla sua fase fenologica",
             b: "Verificare che la distribuzione del prodotto fitosanitario sia uniforme ed omogeneo",
-            c: "Verificare i parametri di uniformit', funzionalit' e tenuta dei diversi componenti della macchina"
+            c: "Verificare i parametri di uniformità, funzionalit' e tenuta dei diversi componenti della macchina"
         },
         correctAnswer: "a"
     },
@@ -3305,7 +3305,7 @@ const questions = [
         question: "Domanda 331: Cosa occorre fare dei recipienti vuoti dei prodotti fitosanitari?",
         answers: {
             a: "Bonificarli e buttarli nelle immondizie dandone comunicazione all'azienda municipale dell'igiene urbana",
-            b: "Bonificarli e distruggerli, bruciandoli o interrandoli, dandone comunicazione all'Unit' Sanitaria Locale e all'ARPA",
+            b: "Bonificarli e distruggerli, bruciandoli o interrandoli, dandone comunicazione all'Unità Sanitaria Locale e all'ARPA",
             c: "Bonificarli e conferirli ai depositi appositamente attrezzati"
         },
         correctAnswer: "c"
@@ -3365,7 +3365,7 @@ const questions = [
         question: "Domanda 337: Come trattare i contenitori vuoti dei prodotti fitosanitari?",
         answers: {
             a: "Risciacquarli con acqua, da distribuire sulla coltura trattata, e accumularli in depositi temporanei",
-            b: "Senza alcun risciacquo, depositarli in magazzino. Periodicamente, la ditta autorizzata provveder' al loro smaltimento",
+            b: "Senza alcun risciacquo, depositarli in magazzino. Periodicamente, la ditta autorizzata provvederà al loro smaltimento",
             c: "Bruciarli in modo da poter smaltire le ceneri nel cassonetto dei rifiuti solidi urbani"
         },
         correctAnswer: "a"
@@ -3566,7 +3566,7 @@ const questions = [
         answers: {
             a: "Bere del latte e distendersi per qualche ora",
             b: "Provocare il vomito e mettersi a riposo",
-            c: "Rivolgersi al pronto soccorso portando con s' la scheda di sicurezza o l'etichetta dei prodotti utilizzati"
+            c: "Rivolgersi al pronto soccorso portando con sè la scheda di sicurezza o l'etichetta dei prodotti utilizzati"
         },
         correctAnswer: "c"
     },
@@ -3574,15 +3574,15 @@ const questions = [
         number: 358,
         question: "Domanda 358: Nel caso di intossicazione acuta da prodotti fitosanitari, quali provvedimenti immediati occorre adottare?",
         answers: {
-            a: "Spogliare e lavare con acqua l'intossicato, somministrare una bevanda calda, chiamare il 118 a cui verr' consegnata la scheda di sicurezza o l'etichetta del prodotto che ha causato l'intossicazione",
+            a: "Spogliare e lavare con acqua l'intossicato, somministrare una bevanda calda, chiamare il 118 a cui verrà consegnata la scheda di sicurezza o l'etichetta del prodotto che ha causato l'intossicazione",
             b: "Spogliare, lavare con acqua e mettere a letto l'intossicato, chiamare il medico curante facendogli vedere il luogo dell'intossicazione nonché  la scheda di sicurezza o l'etichetta del prodotto che ha causato l'intossicazione",
-            c: "Chiamare il 118, trasportare l'intossicato lontano dal luogo della contaminazione, spogliarlo e lavarlo con acqua e non somministrare alcuna bevanda, aspettare l'arrivo del personale del 118 a cui verr' consegnata la scheda di sicurezza o l'etichetta del prodotto che ha causato l'intossicazione"
+            c: "Chiamare il 118, trasportare l'intossicato lontano dal luogo della contaminazione, spogliarlo e lavarlo con acqua e non somministrare alcuna bevanda, aspettare l'arrivo del personale del 118 a cui verrà consegnata la scheda di sicurezza o l'etichetta del prodotto che ha causato l'intossicazione"
         },
         correctAnswer: "c"
     },
     {
         number: 359,
-        question: "Domanda 359: In caso di malessere o di intossicazione che si ritiene collegato con l'impiego dei prodotti fitosanitari, quale documentazione è necessario portare con s' al pronto soccorso?",
+        question: "Domanda 359: In caso di malessere o di intossicazione che si ritiene collegato con l'impiego dei prodotti fitosanitari, quale documentazione è necessario portare con sè al pronto soccorso?",
         answers: {
             a: "Il registro dei trattamenti eseguiti nei 30 giorni precedenti all'intossicazione",
             b: "La scheda di sicurezza o l'etichetta dei prodotti fitosanitari impiegati",
