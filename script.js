@@ -54,6 +54,9 @@ function selectModule(moduleNumber) {
         else if (moduleNumber === 8) { start = 411; end = 426; }
 
         filteredQuestions = questions.filter(q => q.number >= start && q.number <= end);
+
+        // Mescola le domande
+        shuffleArray(filteredQuestions);
     }
 
     if (filteredQuestions.length === 0) {
@@ -150,19 +153,17 @@ function loadQuestion() {
         // Numero sequenziale della domanda nel quiz (da 1 a 50)
         let quizQuestionNumber = currentQuestion + 1;
 
-        // Numero originale della domanda
-        let originalQuestionNumber = filteredQuestions[currentQuestion].number;
-
         // Aggiorna il testo della domanda con i numeri richiesti
-        document.getElementById('questionText').innerHTML =  quizQuestionNumber +  '/50<br><br><br>' + filteredQuestions[currentQuestion].question;
+        document.getElementById('questionText').innerHTML = quizQuestionNumber + '/50<br><br><br>' + filteredQuestions[currentQuestion].question;
     } else {
         // Formato standard per gli altri moduli
         document.getElementById('questionText').innerHTML = filteredQuestions[currentQuestion].question;
     }
 
-    document.getElementById('label_a').innerText = filteredQuestions[currentQuestion].answers.a;
-    document.getElementById('label_b').innerText = filteredQuestions[currentQuestion].answers.b;
-    document.getElementById('label_c').innerText = filteredQuestions[currentQuestion].answers.c;
+    // Aggiorna il testo delle risposte
+    document.getElementById('option_a').innerText = filteredQuestions[currentQuestion].answers.a;
+    document.getElementById('option_b').innerText = filteredQuestions[currentQuestion].answers.b;
+    document.getElementById('option_c').innerText = filteredQuestions[currentQuestion].answers.c;
     document.getElementById('feedback').innerText = '';
     document.getElementById('nextButton').style.display = 'none';
 
