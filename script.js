@@ -207,7 +207,7 @@ function checkAnswer(selectedValue) {
         document.getElementById('symbol_' + correctAnswer).innerText = '✔'; // Aggiungi il simbolo di correttezza alla risposta giusta
         incorrectAnswers++;
     }
-    document.getElementById('nextButton').style.display = 'inline';
+    document.getElementById('nextButton').style.display = 'block';
 
     // Disabilita le opzioni di risposta
     document.getElementById('answer_a').disabled = true;
