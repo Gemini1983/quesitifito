@@ -469,6 +469,23 @@ button:active {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
+/* Firma */
+.signature {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+}
+
+.signature i {
+    color: #007BFF;
+    margin-right: 5px;
+}
+
+.signature strong {
+    color: #000;
+}
+
+
 /* Media query per dispositivi mobili */
 @media (max-width: 768px) {
     .exam-button {
@@ -512,4 +529,5 @@ button:active {
     #progress {
         height: 15px;
     }
+    
 }
