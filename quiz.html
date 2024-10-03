@@ -2,21 +2,18 @@
 <html lang="it">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R332BX974M"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-R332BX974M');
-    </script>
+    <!-- Meta Tag e Titolo -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz con Selezione Modulo</title>
+    <title>Quiz Prodotti Fitosanitari</title>
     <!-- Collegamento al file CSS esterno -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Importazione del font da Google Fonts (il font viene importato nel CSS) -->
+    <!-- Importazione dei Font e delle Icone -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-hF1SrPtuWn4qvs8oXblQxV5YBnqIjfwdlZJ/3jMXKgfGg6LPTy0gSXE+rZG8zr4J3cbl3j6dxuXJ+ZVqh5d5cg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -26,24 +23,61 @@
 
         <!-- Schermata di Selezione del Modulo -->
         <div id="moduleSelection" class="module-selection">
-            <h2>QUESITI PER LA PROVA D'ESAME NECESSARIA AL RILASCIO DEI CERTIFICATI DI ABILITAZIONE
-                ALL'ACQUISTO E ALL'UTILIZZO DEI PRODOTTI FITOSANITARI E DI ABILITAZIONE PER L'ATTIVITÀ DI CONSULENTE
-            </h2>
-            <br>
-            <h2>Seleziona un Modulo:</h2>
-            <!-- Pulsante per la simulazione dell'esame -->
-            <button class="module-button" onclick="selectModule('exam')">Simulazione Esame (50 domande)</button>
-            <!-- Pulsanti dei moduli esistenti -->
-            <button class="module-button" onclick="selectModule(1)">Modulo 1: Normativa (1–34)</button>
-            <button class="module-button" onclick="selectModule(2)">Modulo 2: Fitoiatria (35–68)</button>
-            <button class="module-button" onclick="selectModule(3)">Modulo 3: Prodotti fitosanitari (69–132)</button>
-            <button class="module-button" onclick="selectModule(4)">Modulo 4: Difesa fitosanitaria (133–158)</button>
-            <button class="module-button" onclick="selectModule(5)">Modulo 5: Classificazione tossicologica
-                (159–243)</button>
-            <button class="module-button" onclick="selectModule(6)">Modulo 6: Norme di sicurezza (244–349)</button>
-            <button class="module-button" onclick="selectModule(7)">Modulo 7: Effetti sulla Salute (350–410)</button>
-            <button class="module-button" onclick="selectModule(8)">Modulo 8: Sostenibilità ambientale
-                (411–426)</button>
+            <h1>Preparati all'Esame per l'Abilitazione ai Prodotti Fitosanitari</h1>
+            <p class="intro-text">
+                Metti alla prova le tue conoscenze e preparati efficacemente per l'esame di abilitazione. Scegli un modulo
+                tematico o simula l'esame completo.
+            </p>
+
+            <!-- Pulsante per la Simulazione dell'Esame -->
+            <div class="exam-simulation">
+                <button class="exam-button" onclick="selectModule('exam')">
+                    <i class="fas fa-file-alt"></i> Simulazione Esame (50 domande)
+                </button>
+                <p class="exam-description">
+                    Affronta una simulazione completa dell'esame con 50 domande selezionate come nella prova ufficiale.
+                </p>
+            </div>
+
+            <!-- Divider -->
+            <hr class="divider">
+
+            <!-- Pulsanti dei Moduli -->
+            <h2>Oppure scegli un modulo specifico:</h2>
+            <div class="modules-grid">
+                <button class="module-button" onclick="selectModule(1)">
+                    <i class="fas fa-gavel"></i>
+                    Modulo 1: Normativa<br><span>(Domande 1–34)</span>
+                </button>
+                <button class="module-button" onclick="selectModule(2)">
+                    <i class="fas fa-leaf"></i>
+                    Modulo 2: Fitoiatria<br><span>(Domande 35–68)</span>
+                </button>
+                <button class="module-button" onclick="selectModule(3)">
+                    <i class="fas fa-vial"></i>
+                    Modulo 3: Prodotti fitosanitari<br><span>(Domande 69–132)</span>
+                </button>
+                <button class="module-button" onclick="selectModule(4)">
+                    <i class="fas fa-shield-alt"></i>
+                    Modulo 4: Difesa fitosanitaria<br><span>(Domande 133–158)</span>
+                </button>
+                <button class="module-button" onclick="selectModule(5)">
+                    <i class="fas fa-skull-crossbones"></i>
+                    Modulo 5: Classificazione tossicologica<br><span>(Domande 159–243)</span>
+                </button>
+                <button class="module-button" onclick="selectModule(6)">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Modulo 6: Norme di sicurezza<br><span>(Domande 244–349)</span>
+                </button>
+                <button class="module-button" onclick="selectModule(7)">
+                    <i class="fas fa-heartbeat"></i>
+                    Modulo 7: Effetti sulla Salute<br><span>(Domande 350–410)</span>
+                </button>
+                <button class="module-button" onclick="selectModule(8)">
+                    <i class="fas fa-globe"></i>
+                    Modulo 8: Sostenibilità ambientale<br><span>(Domande 411–426)</span>
+                </button>
+            </div>
         </div>
 
         <!-- Contenitore del Quiz (nascosto finché non si seleziona un modulo) -->
@@ -101,33 +135,26 @@
         <div id="infoSection" style="display:none;">
             <h2>Informazioni sull'applicazione</h2>
             <p>
-                In base alla <strong>Determinazione n. G05824 del 13/05/2015</strong> emanata dalla Regione Lazio, è
-                stato
-                approvato un elenco di <strong>426 quesiti a risposta multipla</strong> per l'esame necessario al
-                rilascio
-                dei certificati di abilitazione all'acquisto e all'utilizzo dei prodotti fitosanitari e per l'attività
-                di
+                In base alla <strong>Determinazione n. G05824 del 13/05/2015</strong> emanata dalla Regione Lazio, è stato
+                approvato un elenco di <strong>426 quesiti a risposta multipla</strong> per l'esame necessario al rilascio
+                dei certificati di abilitazione all'acquisto e all'utilizzo dei prodotti fitosanitari e per l'attività di
                 consulente.
             </p>
             <p>
                 Questo esame, reso obbligatorio dal <strong>D.Lgs 14 agosto 2012, n. 150</strong>, che recepisce la
-                direttiva <strong>2009/128/CE</strong> sull'utilizzo sostenibile dei pesticidi, richiede la
-                partecipazione a
-                corsi di formazione e il superamento di una prova composta da <strong>50 domande</strong> estratte da
-                tale
+                direttiva <strong>2009/128/CE</strong> sull'utilizzo sostenibile dei pesticidi, richiede la partecipazione a
+                corsi di formazione e il superamento di una prova composta da <strong>50 domande</strong> estratte da tale
                 elenco.
             </p>
             <h3>Obiettivo dell'applicazione</h3>
             <p>
                 Ho sviluppato un'applicazione mobile che integra tutti i <strong>426 quesiti ufficiali</strong> forniti
-                dall'amministrazione pubblica, con l'obiettivo di <strong>facilitare la preparazione</strong> dei
-                candidati
+                dall'amministrazione pubblica, con l'obiettivo di <strong>facilitare la preparazione</strong> dei candidati
                 all'esame di abilitazione.
             </p>
             <p>
                 L'app rende il materiale didattico più accessibile e interattivo, permettendo agli utenti di esercitarsi
-                efficacemente attraverso <strong>moduli tematici</strong> corrispondenti ai diversi argomenti
-                dell'esame.
+                efficacemente attraverso <strong>moduli tematici</strong> corrispondenti ai diversi argomenti dell'esame.
             </p>
             <p>
                 Questa soluzione digitale è in linea con le normative vigenti e gli obiettivi di tutela dell'ambiente e
@@ -136,10 +163,8 @@
 
             <!-- Disclaimer -->
             <p class="disclaimer">
-                <strong>Disclaimer:</strong> Questa applicazione è stata sviluppata a scopo educativo e informativo. Non
-                è
-                affiliata né approvata dalla Regione Lazio o da alcuna istituzione pubblica. Si prega di consultare le
-                fonti
+                <strong>Disclaimer:</strong> Questa applicazione è stata sviluppata a scopo educativo e informativo. Non è
+                affiliata né approvata dalla Regione Lazio o da alcuna istituzione pubblica. Si prega di consultare le fonti
                 ufficiali per informazioni aggiornate e dettagliate riguardo alle normative e alle procedure d'esame.
             </p>
             <button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>
@@ -152,9 +177,8 @@
         </div>
     </div>
 
-    <!-- Includi il file delle domande -->
+    <!-- Includi i file JavaScript -->
     <script src="domande.js"></script>
-    <!-- Includi il file JavaScript esterno -->
     <script src="script.js"></script>
 </body>
 
