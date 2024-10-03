@@ -82,13 +82,14 @@
 
         <!-- Contenitore del Quiz (nascosto finché non si seleziona un modulo) -->
         <div id="quizContainer" style="display:none;">
-            <!-- Pulsante per tornare alla selezione del modulo -->
-            <button onclick="returnToModuleSelection()">Torna alla scelta del modulo</button>
+            <!-- Link per tornare alla selezione del modulo -->
+            <a href="#" class="back-link" onclick="returnToModuleSelection()">Torna alla scelta del modulo</a>
 
             <!-- Barra di Progresso -->
             <div id="progressBar">
                 <div id="progress"></div>
             </div>
+            <div id="progressText"></div>
 
             <!-- Timer -->
             <div id="timer"></div>
@@ -167,7 +168,7 @@
                 affiliata né approvata dalla Regione Lazio o da alcuna istituzione pubblica. Si prega di consultare le fonti
                 ufficiali per informazioni aggiornate e dettagliate riguardo alle normative e alle procedure d'esame.
             </p>
-            <button onclick="returnToModuleSelection()">Torna alla scelta del modulo</button>
+            <a href="#" class="back-link" onclick="returnToModuleSelection()">Torna alla scelta del modulo</a>
         </div>
 
         <!-- Footer con link al testo esplicativo -->

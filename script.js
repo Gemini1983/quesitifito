@@ -26,6 +26,9 @@ function selectModule(moduleNumber) {
     incorrectAnswers = 0;
     questionAnswered = false;
 
+    // Nascondi il footer durante la simulazione
+    document.getElementById('footer').style.display = 'none';
+
     // Resetta il timer se attivo
     if (examTimer) {
         clearInterval(examTimer);
@@ -41,6 +44,9 @@ function selectModule(moduleNumber) {
         // Inizializza il timer (90 minuti = 5400 secondi)
         timeRemaining = 5400;
         startExamTimer();
+
+        // Suggerisci la modalità a schermo intero
+        suggestFullScreen();
     } else {
         isExamSimulation = false;
         let start = 0, end = 0;
@@ -76,6 +82,24 @@ function selectModule(moduleNumber) {
     document.getElementById('progress').style.width = '0%';
 
     loadQuestion();
+}
+
+function suggestFullScreen() {
+    if (!document.fullscreenElement) {
+        let enterFullScreen = confirm('Vuoi attivare la modalità a schermo intero per una migliore esperienza durante la simulazione dell\'esame?');
+        if (enterFullScreen) {
+            let elem = document.documentElement;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { /* Firefox */
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                elem.msRequestFullscreen();
+            }
+        }
+    }
 }
 
 function getExamQuestions() {
@@ -116,8 +140,8 @@ function getExamQuestions() {
         selectedQuestions = selectedQuestions.concat(moduleQuestions.slice(0, numQuestions));
     }
 
-    // Ordina le domande selezionate in ordine crescente secondo il loro numero originale
-    selectedQuestions.sort((a, b) => a.number - b.number);
+    // Ordina le domande selezionate in ordine casuale
+    shuffleArray(selectedQuestions);
 
     return selectedQuestions;
 }
@@ -145,7 +169,7 @@ function assignEventHandlers() {
 
 function loadQuestion() {
     if (filteredQuestions.length === 0) {
-        document.getElementById('quizContainer').innerHTML = '<p>Nessuna domanda disponibile per questo modulo.</p><button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>';
+        document.getElementById('quizContainer').innerHTML = '<p>Nessuna domanda disponibile per questo modulo.</p><a href="#" class="back-link" onclick="returnToModuleSelection()">Torna alla scelta del modulo</a>';
         return;
     }
 
@@ -154,7 +178,7 @@ function loadQuestion() {
         let quizQuestionNumber = currentQuestion + 1;
 
         // Aggiorna il testo della domanda con i numeri richiesti
-        document.getElementById('questionText').innerHTML = quizQuestionNumber + '/50<br><br><br>' + filteredQuestions[currentQuestion].question;
+        document.getElementById('questionText').innerHTML = filteredQuestions[currentQuestion].question;
     } else {
         // Formato standard per gli altri moduli
         document.getElementById('questionText').innerHTML = filteredQuestions[currentQuestion].question;
@@ -171,6 +195,9 @@ function loadQuestion() {
     document.getElementById('label_a').classList.remove('correct', 'incorrect', 'disabled');
     document.getElementById('label_b').classList.remove('correct', 'incorrect', 'disabled');
     document.getElementById('label_c').classList.remove('correct', 'incorrect', 'disabled');
+    document.getElementById('symbol_a').innerText = '';
+    document.getElementById('symbol_b').innerText = '';
+    document.getElementById('symbol_c').innerText = '';
 
     // Resetta i radio button
     document.getElementById('answer_a').checked = false;
@@ -185,8 +212,27 @@ function loadQuestion() {
     questionAnswered = false;
 
     // Aggiorna la barra di progresso
-    let progressPercentage = ((currentQuestion) / filteredQuestions.length) * 100;
+    let currentQuestionNumber = currentQuestion + 1;
+    let totalQuestions = filteredQuestions.length;
+    let progressPercentage = ((currentQuestion) / totalQuestions) * 100;
     document.getElementById('progress').style.width = progressPercentage + '%';
+
+    // Aggiorna il testo del progresso
+    document.getElementById('progressText').innerText = 'Domanda ' + currentQuestionNumber + ' di ' + totalQuestions;
+
+    // Aggiungi animazione fade-in
+    document.querySelector('.question').classList.add('fade-in');
+    document.querySelectorAll('.answer-option').forEach(function(option) {
+        option.classList.add('fade-in');
+    });
+
+    // Rimuovi la classe dopo l'animazione per consentire la riapplicazione
+    setTimeout(function() {
+        document.querySelector('.question').classList.remove('fade-in');
+        document.querySelectorAll('.answer-option').forEach(function(option) {
+            option.classList.remove('fade-in');
+        });
+    }, 500);
 }
 
 function checkAnswer(selectedValue) {
@@ -196,15 +242,19 @@ function checkAnswer(selectedValue) {
     questionAnswered = true;
 
     const correctAnswer = filteredQuestions[currentQuestion].correctAnswer;
+    const feedbackElement = document.getElementById('feedback');
+
     if (selectedValue === correctAnswer) {
         document.getElementById('label_' + correctAnswer).classList.add('correct');
         document.getElementById('symbol_' + correctAnswer).innerText = '✔'; // Aggiungi il simbolo di correttezza
+        feedbackElement.innerHTML = '<span class="feedback-correct">Risposta corretta!</span>';
         correctAnswers++;
     } else {
         document.getElementById('label_' + selectedValue).classList.add('incorrect');
         document.getElementById('symbol_' + selectedValue).innerText = '✖'; // Aggiungi il simbolo di errore
         document.getElementById('label_' + correctAnswer).classList.add('correct');
         document.getElementById('symbol_' + correctAnswer).innerText = '✔'; // Aggiungi il simbolo di correttezza alla risposta giusta
+        feedbackElement.innerHTML = '<span class="feedback-incorrect">Risposta errata.</span>';
         incorrectAnswers++;
     }
     document.getElementById('nextButton').style.display = 'block';
@@ -224,7 +274,6 @@ function checkAnswer(selectedValue) {
     document.getElementById('incorrectCount').innerHTML = '<span class="icon-incorrect">✖</span> ' + incorrectAnswers;
 }
 
-
 function nextQuestion() {
     currentQuestion++;
     if (currentQuestion < filteredQuestions.length) {
@@ -233,36 +282,43 @@ function nextQuestion() {
         // Aggiorna la barra di progresso al 100%
         document.getElementById('progress').style.width = '100%';
 
-        let resultMessage = '<h2>Quiz completato!</h2>';
-        resultMessage += '<p><span class="icon-correct">✔</span> Risposte Corrette: ' + correctAnswers + '</p>';
-        resultMessage += '<p><span class="icon-incorrect">✖</span> Risposte Errate: ' + incorrectAnswers + '</p>';
+        let resultMessage = '<div class="quiz-summary">';
+        resultMessage += '<h2>Simulazione completata!</h2>';
 
         let scorePercentage = (correctAnswers / filteredQuestions.length) * 100;
-        resultMessage += '<p>Punteggio: ' + scorePercentage.toFixed(2) + '%</p>';
-
         let errors = filteredQuestions.length - correctAnswers;
 
         if (isExamSimulation) {
-            // Messaggi specifici per la simulazione dell'esame
+            resultMessage += '<div class="summary-stats">';
+            resultMessage += '<p><span class="icon-correct">✔</span> Risposte Corrette: ' + correctAnswers + '</p>';
+            resultMessage += '<p><span class="icon-incorrect">✖</span> Risposte Errate: ' + incorrectAnswers + '</p>';
+            resultMessage += '</div>';
+
             if (errors <= 5) {
-                resultMessage += '<p>Complimenti! Hai superato la simulazione dell\'esame.</p>';
+                resultMessage += '<p class="pass-message">Complimenti! Hai superato la simulazione dell\'esame.</p>';
             } else if (errors >= 6 && errors <= 10) {
-                resultMessage += '<p>Hai commesso ' + errors + ' errori. Dovrai sostenere una prova orale per superare l\'esame.</p>';
+                resultMessage += '<p class="oral-message">Hai commesso ' + errors + ' errori. Dovrai sostenere una prova orale per superare l\'esame.</p>';
             } else {
-                resultMessage += '<p>Hai commesso ' + errors + ' errori. Non hai ottenuto l\'abilitazione. Continua a studiare e riprova!</p>';
+                resultMessage += '<p class="fail-message">Hai commesso ' + errors + ' errori. Non hai ottenuto l\'abilitazione. Continua a studiare e riprova!</p>';
             }
         } else {
             // Messaggi per gli altri moduli
+            resultMessage += '<div class="summary-stats">';
+            resultMessage += '<p><span class="icon-correct">✔</span> Risposte Corrette: ' + correctAnswers + '</p>';
+            resultMessage += '<p><span class="icon-incorrect">✖</span> Risposte Errate: ' + incorrectAnswers + '</p>';
+            resultMessage += '</div>';
+
             if (scorePercentage === 100) {
-                resultMessage += '<p>Complimenti! Hai risposto correttamente a tutte le domande!</p>';
+                resultMessage += '<p class="pass-message">Complimenti! Hai risposto correttamente a tutte le domande!</p>';
             } else if (scorePercentage >= 70) {
-                resultMessage += '<p>Ottimo lavoro! Hai superato il modulo con un buon punteggio.</p>';
+                resultMessage += '<p class="pass-message">Ottimo lavoro! Hai superato il modulo con un buon punteggio.</p>';
             } else {
-                resultMessage += '<p>Puoi fare di meglio. Riprova per migliorare il tuo punteggio.</p>';
+                resultMessage += '<p class="fail-message">Puoi fare di meglio. Riprova per migliorare il tuo punteggio.</p>';
             }
         }
 
-        resultMessage += '<button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>';
+        resultMessage += '<a href="#" class="back-link" onclick="returnToModuleSelection()">Torna alla scelta del modulo</a>';
+        resultMessage += '</div>';
         document.getElementById('quizContainer').innerHTML = resultMessage;
 
         // Se il timer è attivo, fermalo
@@ -322,6 +378,22 @@ function returnToModuleSelection() {
     // Ripristina il contenuto originale di 'quizContainer' e riassegna gli event handler
     document.getElementById('quizContainer').innerHTML = originalQuizContainerContent;
     assignEventHandlers();
+
+    // Mostra il footer
+    document.getElementById('footer').style.display = 'block';
+
+    // Esci dalla modalità a schermo intero se attiva
+    if (document.fullscreenElement) {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { /* Firefox */
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE/Edge */
+            document.msExitFullscreen();
+        }
+    }
 
     // Resetta il timer se attivo
     if (examTimer) {
