@@ -1426,7 +1426,7 @@ const questions = [
         answers: {
             a: "Quando la vite 'piange': si tratta del periodo in cui la pianta risulta più suscettibile all'infezione peronosporica",
             b: "Quando sulla pagina superiore delle foglie sono visibili le 'macchie d'olio': segni evidenti dell'avvenuta infezione peronosporica",
-            c: "Con germogli di 10 cm di lunghezza, dopo una pioggia di almeno 10 mm e con una temperatura minima di almeno 10 C"
+            c: "Con germogli di 10 cm di lunghezza, dopo una pioggia di almeno 10 mm e con una temperatura minima di almeno 10 °C"
         },
         correctAnswer: "c"
     },
@@ -2895,8 +2895,8 @@ const questions = [
         question: "Domanda 290: Come si dispongono gli ugelli a fessura sulla barra?",
         answers: {
             a: "Con le fessure parallele tra loro e non inclinate rispetto all'asse della barra",
-            b: "Inclinando le fessure di 5 - 10 rispetto all'asse della barra",
-            c: "Inclinando le fessure di 15 - 20 rispetto all'asse della barra"
+            b: "Inclinando le fessure di 5° - 10° rispetto all'asse della barra",
+            c: "Inclinando le fessure di 15° - 20° rispetto all'asse della barra"
         },
         correctAnswer: "b"
     },
