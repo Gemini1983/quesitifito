@@ -198,10 +198,13 @@ function checkAnswer(selectedValue) {
     const correctAnswer = filteredQuestions[currentQuestion].correctAnswer;
     if (selectedValue === correctAnswer) {
         document.getElementById('label_' + correctAnswer).classList.add('correct');
+        document.getElementById('symbol_' + correctAnswer).innerText = '✔'; // Aggiungi il simbolo di correttezza
         correctAnswers++;
     } else {
         document.getElementById('label_' + selectedValue).classList.add('incorrect');
+        document.getElementById('symbol_' + selectedValue).innerText = '✖'; // Aggiungi il simbolo di errore
         document.getElementById('label_' + correctAnswer).classList.add('correct');
+        document.getElementById('symbol_' + correctAnswer).innerText = '✔'; // Aggiungi il simbolo di correttezza alla risposta giusta
         incorrectAnswers++;
     }
     document.getElementById('nextButton').style.display = 'inline';
@@ -220,6 +223,7 @@ function checkAnswer(selectedValue) {
     document.getElementById('correctCount').innerHTML = '<span class="icon-correct">✔</span> ' + correctAnswers;
     document.getElementById('incorrectCount').innerHTML = '<span class="icon-incorrect">✖</span> ' + incorrectAnswers;
 }
+
 
 function nextQuestion() {
     currentQuestion++;

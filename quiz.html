@@ -27,7 +27,8 @@
         <!-- Schermata di Selezione del Modulo -->
         <div id="moduleSelection" class="module-selection">
             <h2>QUESITI PER LA PROVA D'ESAME NECESSARIA AL RILASCIO DEI CERTIFICATI DI ABILITAZIONE
-                ALL'ACQUISTO E ALL'UTILIZZO DEI PRODOTTI FITOSANITARI E DI ABILITAZIONE PER L'ATTIVITÀ DI CONSULENTE</h2>
+                ALL'ACQUISTO E ALL'UTILIZZO DEI PRODOTTI FITOSANITARI E DI ABILITAZIONE PER L'ATTIVITÀ DI CONSULENTE
+            </h2>
             <br>
             <h2>Seleziona un Modulo:</h2>
             <!-- Pulsante per la simulazione dell'esame -->
@@ -37,10 +38,12 @@
             <button class="module-button" onclick="selectModule(2)">Modulo 2: Fitoiatria (35–68)</button>
             <button class="module-button" onclick="selectModule(3)">Modulo 3: Prodotti fitosanitari (69–132)</button>
             <button class="module-button" onclick="selectModule(4)">Modulo 4: Difesa fitosanitaria (133–158)</button>
-            <button class="module-button" onclick="selectModule(5)">Modulo 5: Classificazione tossicologica (159–243)</button>
+            <button class="module-button" onclick="selectModule(5)">Modulo 5: Classificazione tossicologica
+                (159–243)</button>
             <button class="module-button" onclick="selectModule(6)">Modulo 6: Norme di sicurezza (244–349)</button>
             <button class="module-button" onclick="selectModule(7)">Modulo 7: Effetti sulla Salute (350–410)</button>
-            <button class="module-button" onclick="selectModule(8)">Modulo 8: Sostenibilità ambientale (411–426)</button>
+            <button class="module-button" onclick="selectModule(8)">Modulo 8: Sostenibilità ambientale
+                (411–426)</button>
         </div>
 
         <!-- Contenitore del Quiz (nascosto finché non si seleziona un modulo) -->
@@ -73,14 +76,17 @@
                 <label class="answer-option" id="label_a">
                     <input type="radio" name="answer" id="answer_a">
                     <span id="option_a"></span>
+                    <span class="symbol" id="symbol_a"></span>
                 </label>
                 <label class="answer-option" id="label_b">
                     <input type="radio" name="answer" id="answer_b">
                     <span id="option_b"></span>
+                    <span class="symbol" id="symbol_b"></span>
                 </label>
                 <label class="answer-option" id="label_c">
                     <input type="radio" name="answer" id="answer_c">
                     <span id="option_c"></span>
+                    <span class="symbol" id="symbol_c"></span>
                 </label>
             </div>
 
@@ -95,26 +101,33 @@
         <div id="infoSection" style="display:none;">
             <h2>Informazioni sull'applicazione</h2>
             <p>
-                In base alla <strong>Determinazione n. G05824 del 13/05/2015</strong> emanata dalla Regione Lazio, è stato
-                approvato un elenco di <strong>426 quesiti a risposta multipla</strong> per l'esame necessario al rilascio
-                dei certificati di abilitazione all'acquisto e all'utilizzo dei prodotti fitosanitari e per l'attività di
+                In base alla <strong>Determinazione n. G05824 del 13/05/2015</strong> emanata dalla Regione Lazio, è
+                stato
+                approvato un elenco di <strong>426 quesiti a risposta multipla</strong> per l'esame necessario al
+                rilascio
+                dei certificati di abilitazione all'acquisto e all'utilizzo dei prodotti fitosanitari e per l'attività
+                di
                 consulente.
             </p>
             <p>
                 Questo esame, reso obbligatorio dal <strong>D.Lgs 14 agosto 2012, n. 150</strong>, che recepisce la
-                direttiva <strong>2009/128/CE</strong> sull'utilizzo sostenibile dei pesticidi, richiede la partecipazione a
-                corsi di formazione e il superamento di una prova composta da <strong>50 domande</strong> estratte da tale
+                direttiva <strong>2009/128/CE</strong> sull'utilizzo sostenibile dei pesticidi, richiede la
+                partecipazione a
+                corsi di formazione e il superamento di una prova composta da <strong>50 domande</strong> estratte da
+                tale
                 elenco.
             </p>
             <h3>Obiettivo dell'applicazione</h3>
             <p>
                 Ho sviluppato un'applicazione mobile che integra tutti i <strong>426 quesiti ufficiali</strong> forniti
-                dall'amministrazione pubblica, con l'obiettivo di <strong>facilitare la preparazione</strong> dei candidati
+                dall'amministrazione pubblica, con l'obiettivo di <strong>facilitare la preparazione</strong> dei
+                candidati
                 all'esame di abilitazione.
             </p>
             <p>
                 L'app rende il materiale didattico più accessibile e interattivo, permettendo agli utenti di esercitarsi
-                efficacemente attraverso <strong>moduli tematici</strong> corrispondenti ai diversi argomenti dell'esame.
+                efficacemente attraverso <strong>moduli tematici</strong> corrispondenti ai diversi argomenti
+                dell'esame.
             </p>
             <p>
                 Questa soluzione digitale è in linea con le normative vigenti e gli obiettivi di tutela dell'ambiente e
@@ -123,8 +136,10 @@
 
             <!-- Disclaimer -->
             <p class="disclaimer">
-                <strong>Disclaimer:</strong> Questa applicazione è stata sviluppata a scopo educativo e informativo. Non è
-                affiliata né approvata dalla Regione Lazio o da alcuna istituzione pubblica. Si prega di consultare le fonti
+                <strong>Disclaimer:</strong> Questa applicazione è stata sviluppata a scopo educativo e informativo. Non
+                è
+                affiliata né approvata dalla Regione Lazio o da alcuna istituzione pubblica. Si prega di consultare le
+                fonti
                 ufficiali per informazioni aggiornate e dettagliate riguardo alle normative e alle procedure d'esame.
             </p>
             <button onclick="returnToModuleSelection()">Torna alla Scelta del Modulo</button>
