@@ -2218,7 +2218,7 @@ const questions = [
             b: "non bisogna rispettare i tempi di carenza in quanto la raccolta è scalare",
             c: "bisogna sempre rispettare i tempi di carenza"
         },
-        correctAnswer: "b"
+        correctAnswer: "c"
     },
     {
         number: 223,
